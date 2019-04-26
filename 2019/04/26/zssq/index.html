@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Aferica">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+    <meta name="keywords" content="API,追书神器">
+
+
+    <meta name="description" content="分类带书籍数量的父分类url: http://api.zhuishushenqi.com/ranking/gender
+response:
+123456789101112131415161718...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>追书神器API整理 | Aferica</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Aferica" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="aferica">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> Aferica的个人博客 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Aferica</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>API</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="追书神器API整理">
+            
+	            追书神器API整理
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/API/">API</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/API/">API</a> <a class="tag-link" href="/tags/追书神器/">追书神器</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/04/26</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h3 id="带书籍数量的父分类"><a href="#带书籍数量的父分类" class="headerlink" title="带书籍数量的父分类"></a>带书籍数量的父分类</h3><p>url: <code>http://api.zhuishushenqi.com/ranking/gender</code></p>
+<p>response:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"male"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"name"</span>: <span class="string">"玄幻"</span>,</span><br><span class="line">      <span class="string">"bookCount"</span>: <span class="number">429247</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"name"</span>: <span class="string">"奇幻"</span>,</span><br><span class="line">      <span class="string">"bookCount"</span>: <span class="number">41711</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"female"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"name"</span>: <span class="string">"古代言情"</span>,</span><br><span class="line">      <span class="string">"bookCount"</span>: <span class="number">338664</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"name"</span>: <span class="string">"现代言情"</span>,</span><br><span class="line">      <span class="string">"bookCount"</span>: <span class="number">395887</span></span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">  ]</span><br><span class="line">  <span class="string">"press"</span>: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="带子分类的父分类"><a href="#带子分类的父分类" class="headerlink" title="带子分类的父分类"></a>带子分类的父分类</h3><p>url: <code>http://api.zhuishushenqi.com/cats/lv2</code></p>
+<p>response:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"male"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"major"</span>: <span class="string">"玄幻"</span>,</span><br><span class="line">      <span class="string">"mins"</span>: [</span><br><span class="line">        <span class="string">"东方玄幻"</span>,</span><br><span class="line">        <span class="string">"异界大陆"</span>,</span><br><span class="line">        <span class="string">"异界争霸"</span>,</span><br><span class="line">        <span class="string">"远古神话"</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"major"</span>: <span class="string">"奇幻"</span>,</span><br><span class="line">      <span class="string">"mins"</span>: [</span><br><span class="line">        <span class="string">"西方奇幻"</span>,</span><br><span class="line">        <span class="string">"领主贵族"</span>,</span><br><span class="line">        <span class="string">"亡灵异族"</span>,</span><br><span class="line">        <span class="string">"魔法校园"</span></span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取分类书籍-categoryInfo"><a href="#获取分类书籍-categoryInfo" class="headerlink" title="获取分类书籍(categoryInfo)"></a>获取分类书籍(categoryInfo)</h3><p>request:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">query:</span><br><span class="line">&#123;</span><br><span class="line">  gender: <span class="string">'male'</span> <span class="comment">// 性别</span></span><br><span class="line">  type: <span class="string">'reputation'</span> <span class="comment">// 按照不同的类型获取分类下的书籍(hot, new, reputation, over)</span></span><br><span class="line">  major: <span class="string">'玄幻'</span> <span class="comment">// 父分类</span></span><br><span class="line">  minor: <span class="string">'东方玄幻'</span> <span class="comment">// 子分类</span></span><br><span class="line">  start: <span class="number">0</span> <span class="comment">// 起始位置</span></span><br><span class="line">  limit: <span class="number">20</span> <span class="comment">//每页数量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>response:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  _id: 书籍id</span><br><span class="line">  title: 书籍名</span><br><span class="line">  author: 作者</span><br><span class="line">  shortIntro: 简介</span><br><span class="line">  cover: 封面</span><br><span class="line">  site: 书源</span><br><span class="line">  latelyFollower: 追书人数</span><br><span class="line">  retentionRatio: 好评率(%)</span><br><span class="line">  lastChater: 最新章节</span><br><span class="line">  tag: 标签</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><h3 id="书籍详情"><a href="#书籍详情" class="headerlink" title="书籍详情"></a>书籍详情</h3><p>url: <code>http://api.zhuishushenqi.com/book/:id</code></p>
+<p>request:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url params: &#123;</span><br><span class="line">  id: BookId</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>response:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"_id"</span>: <span class="string">"5106099abb1c67cf28000016"</span>, <span class="comment">//书籍id</span></span><br><span class="line">  <span class="string">"author"</span>: <span class="string">"禹枫"</span>, <span class="comment">//作者</span></span><br><span class="line">  <span class="string">"cover"</span>: <span class="string">"/agent/http://images.zhulang.com/book_cover/image/18/98/189843.jpg"</span>, <span class="comment">// 封面</span></span><br><span class="line">  <span class="string">"creater"</span>: <span class="string">"iPhone 4"</span>,</span><br><span class="line">  <span class="string">"longIntro"</span>: <span class="string">"..."</span>, <span class="comment">//长介绍</span></span><br><span class="line">  <span class="string">"title"</span>: <span class="string">"异世灵武天下"</span>, <span class="comment">//书名</span></span><br><span class="line">  <span class="string">"cat"</span>: <span class="string">"东方玄幻"</span>,</span><br><span class="line">  <span class="string">"majorCate"</span>: <span class="string">"玄幻"</span>, <span class="comment">//主分类</span></span><br><span class="line">  <span class="string">"minorCate"</span>: <span class="string">"东方玄幻"</span>, <span class="comment">//子分类</span></span><br><span class="line">  <span class="string">"_le"</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="string">"allowMonthly"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"allowVoucher"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"allowBeanVoucher"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"hasCp"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"postCount"</span>: <span class="number">3183</span>,</span><br><span class="line">  <span class="string">"latelyFollower"</span>: <span class="number">43192</span>, <span class="comment">//追书人数</span></span><br><span class="line">  <span class="string">"followerCount"</span>: <span class="number">5164</span>,</span><br><span class="line">  <span class="string">"wordCount"</span>: <span class="number">11241234</span>, <span class="comment">//总字数</span></span><br><span class="line">  <span class="string">"serializeWordCount"</span>: <span class="number">129762</span>, <span class="comment">//平均</span></span><br><span class="line">  <span class="string">"retentionRatio"</span>: <span class="string">"66.16"</span>, <span class="comment">//好评率</span></span><br><span class="line">  <span class="string">"updated"</span>: <span class="string">"2017-01-19T05:58:53.799Z"</span>, <span class="comment">//更新于</span></span><br><span class="line">  <span class="string">"isSerial"</span>: <span class="literal">false</span>, <span class="comment">//连载中</span></span><br><span class="line">  <span class="string">"chaptersCount"</span>: <span class="number">3577</span>, <span class="comment">//总章数</span></span><br><span class="line">  <span class="string">"lastChapter"</span>: <span class="string">"后续第五章:大结局终章"</span>, <span class="comment">//最新章节</span></span><br><span class="line">  <span class="string">"gender"</span>: [</span><br><span class="line">    <span class="string">"male"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"tags"</span>: [],</span><br><span class="line">  <span class="string">"donate"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="书籍章节"><a href="#书籍章节" class="headerlink" title="书籍章节"></a>书籍章节</h3><p>这部分相对比较复杂</p>
+<p>步骤如下:</p>
+<p>书籍id -&gt; 获取所有书源 -&gt; 书源id -&gt; 获取章节目录 -&gt; 章节link -&gt; 章节内容</p>
+<ul>
+<li>书籍id      <code>5779b38d3b433dd647d95da2</code></li>
+<li><p>获取所有书源    [<code>http://api.zhuishushenqi.com/atoc/?view=summary&amp;book=5779b38d3b433dd647d95da2</code>]</p>
+<blockquote>
+<p> response:</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;   [</span><br><span class="line">&gt;     &#123;</span><br><span class="line">&gt;       <span class="string">"_id"</span>: <span class="string">"5881e82e3e3357fa266f6a3e"</span>,</span><br><span class="line">&gt;       <span class="string">"source"</span>: <span class="string">"zhuishuvip"</span>,</span><br><span class="line">&gt;       <span class="string">"name"</span>: <span class="string">"优质书源"</span>,</span><br><span class="line">&gt;       <span class="string">"link"</span>: <span class="string">"http://vip.zhuishushenqi.com/toc/5881e82e3e3357fa266f6a3e"</span>,</span><br><span class="line">&gt;       <span class="string">"lastChapter"</span>: <span class="string">"第1016章 扑朔迷离（大结局）"</span>,</span><br><span class="line">&gt;       <span class="string">"isCharge"</span>: <span class="literal">false</span>,</span><br><span class="line">&gt;       <span class="string">"chaptersCount"</span>: <span class="number">1029</span>,</span><br><span class="line">&gt;       <span class="string">"updated"</span>: <span class="string">"2017-12-26T05:16:04.709Z"</span>,</span><br><span class="line">&gt;       <span class="string">"starting"</span>: <span class="literal">true</span>,</span><br><span class="line">&gt;       <span class="string">"host"</span>: <span class="string">"vip.zhuishushenqi.com"</span></span><br><span class="line">&gt;     &#125;,</span><br><span class="line">&gt;     ...</span><br><span class="line">&gt;   ]</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>书源id      <code>5881e82e3e3357fa266f6a3e</code></p>
+</li>
+<li><p>获取章节目录      [<code>http://api.zhuishushenqi.com/btoc/5881e82e3e3357fa266f6a3e?view=chapters</code>]</p>
+<blockquote>
+<p> response:</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt;  &#123;</span><br><span class="line">&gt;    <span class="string">"_id"</span>: <span class="string">"5881e82e3e3357fa266f6a3e"</span>,</span><br><span class="line">&gt;    <span class="string">"name"</span>: <span class="string">"优质书源"</span>,</span><br><span class="line">&gt;    <span class="string">"link"</span>: <span class="string">"http://vip.zhuishushenqi.com/toc/5881e82e3e3357fa266f6a3e"</span>,</span><br><span class="line">&gt;    <span class="string">"book"</span>: <span class="string">"5779b38d3b433dd647d95da2"</span>,</span><br><span class="line">&gt;    <span class="string">"chapters"</span>: [</span><br><span class="line">&gt;      &#123;</span><br><span class="line">&gt;        <span class="string">"title"</span>: <span class="string">"第一章 状元再世"</span>, <span class="comment">// 章节名</span></span><br><span class="line">&gt;        <span class="string">"link"</span>: <span class="string">"http://vip.zhuishushenqi.com/chapter/5881e82e4e307ea47f89deeb?cv=1484908590347"</span>, <span class="comment">//章节地址</span></span><br><span class="line">&gt;        <span class="string">"id"</span>: <span class="string">"5881e82e4e307ea47f89deeb"</span>, <span class="comment">//章节id</span></span><br><span class="line">&gt;        <span class="string">"currency"</span>: <span class="number">10</span>, <span class="comment">//价格</span></span><br><span class="line">&gt;        <span class="string">"unreadble"</span>: <span class="literal">false</span>,</span><br><span class="line">&gt;        <span class="string">"isVip"</span>: <span class="literal">false</span> <span class="comment">// 是否是vip章节</span></span><br><span class="line">&gt;      &#125;</span><br><span class="line">&gt;    ],</span><br><span class="line">&gt;    <span class="string">"updated"</span>: <span class="string">"2017-03-31T14:44:51.413Z"</span>, <span class="comment">//更新于</span></span><br><span class="line">&gt;    <span class="string">"host"</span>: <span class="string">"vip.zhuishushenqi.com"</span> <span class="comment">// 书源</span></span><br><span class="line">&gt;  &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>章节link <code>http://vip.zhuishushenqi.com/chapter/5881e82e4e307ea47f89deeb?cv=1484908590347</code></p>
+</li>
+<li>章节内容 如下：</li>
+</ul>
+<h3 id="章节内容"><a href="#章节内容" class="headerlink" title="章节内容"></a>章节内容</h3><p>url: <code>http://chapter2.zhuishushenqi.com/chapter/:chapterLink</code></p>
+<p>request:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url params: &#123;</span><br><span class="line">  chapterLink: &apos;http://vip.zhuishushenqi.com/chapter/5881e82e4e307ea47f89df43&apos; // 章节地址</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>response:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"ok"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"chapter"</span>: &#123;</span><br><span class="line">    <span class="string">"title"</span>: <span class="string">"第八十九章 杂阿神功（二）"</span>, <span class="comment">// 章节名</span></span><br><span class="line">    <span class="string">"body"</span>: <span class="string">"\n\r\n\r\n\r请安装最新版追书 以便使用优质资源"</span>,</span><br><span class="line">    <span class="string">"isVip"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"cpContent"</span>: <span class="string">".."</span>, <span class="comment">//章节内容</span></span><br><span class="line">    <span class="string">"currency"</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="string">"id"</span>: <span class="string">"5881e82e4e307ea47f89df43"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="作者的书籍"><a href="#作者的书籍" class="headerlink" title="作者的书籍"></a>作者的书籍</h3><p>url: <code>http://api.zhuishushenqi.com/book/accurate-search?author=忘语</code></p>
+<p>request:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url params: &#123;</span><br><span class="line">  author: 作者名</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>response:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"books"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"_id"</span>: <span class="string">"567d2cb9ee0e56bc713cb2c0"</span>,</span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"玄界之门"</span>,</span><br><span class="line">      <span class="string">"author"</span>: <span class="string">"忘语"</span>,</span><br><span class="line">      <span class="string">"shortIntro"</span>: <span class="string">"..."</span>,</span><br><span class="line">      <span class="string">"cover"</span>: <span class="string">"/cover/148369972991098"</span>,</span><br><span class="line">      <span class="string">"cat"</span>: <span class="string">"仙侠"</span>,</span><br><span class="line">      <span class="string">"site"</span>: <span class="string">"zhuishuvip"</span>,</span><br><span class="line">      <span class="string">"majorCate"</span>: <span class="string">"仙侠"</span>,</span><br><span class="line">      <span class="string">"minorCate"</span>: <span class="string">"幻想修仙"</span>,</span><br><span class="line">      <span class="string">"banned"</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="string">"latelyFollower"</span>: <span class="number">35504</span>,</span><br><span class="line">      <span class="string">"followerCount"</span>: <span class="number">0</span>,</span><br><span class="line">      <span class="string">"retentionRatio"</span>: <span class="number">65.18</span>,</span><br><span class="line">      <span class="string">"lastChapter"</span>: <span class="string">"第919章 前线告急"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    ...</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"ok"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="排名"><a href="#排名" class="headerlink" title="排名"></a>排名</h2><h3 id="排名分类"><a href="#排名分类" class="headerlink" title="排名分类"></a>排名分类</h3><p>url: <code>http://api.zhuishushenqi.com/ranking/gender</code></p>
+<p>response:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"female"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"_id"</span>: <span class="string">"54d43437d47d13ff21cad58b"</span>, <span class="comment">//周榜</span></span><br><span class="line">      <span class="string">"title"</span>: <span class="string">"追书最热榜 Top100"</span>,</span><br><span class="line">      <span class="string">"cover"</span>: <span class="string">"/ranking-cover/142319314350435"</span>,</span><br><span class="line">      <span class="string">"collapse"</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="string">"monthRank"</span>: <span class="string">"564d853484665f97662d0810"</span>, <span class="comment">//月榜</span></span><br><span class="line">      <span class="string">"totalRank"</span>: <span class="string">"564d85b6dd2bd1ec660ea8e2"</span> <span class="comment">// 总榜</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="排名详情"><a href="#排名详情" class="headerlink" title="排名详情"></a>排名详情</h3><p>url: <code>http://api.zhuishushenqi.com/ranking/:id</code></p>
+<p>request:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url params: &#123;</span><br><span class="line">  id: 排名id //周榜等</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>response:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"ranking"</span>: &#123;</span><br><span class="line">    <span class="string">"_id"</span>: <span class="string">"54d42d92321052167dfb75e3"</span>,</span><br><span class="line">    <span class="string">"updated"</span>: <span class="string">"2017-03-31T21:20:09.135Z"</span>,</span><br><span class="line">    <span class="string">"title"</span>: <span class="string">"追书最热榜 Top100"</span>,</span><br><span class="line">    <span class="string">"tag"</span>: <span class="string">"zhuishuLatelyFollowerMale"</span>,</span><br><span class="line">    <span class="string">"cover"</span>: <span class="string">"/ranking-cover/142319144267827"</span>,</span><br><span class="line">    <span class="string">"icon"</span>: <span class="string">"/cover/148945782817557"</span>,</span><br><span class="line">    <span class="string">"__v"</span>: <span class="number">790</span>,</span><br><span class="line">    <span class="string">"monthRank"</span>: <span class="string">"564d820bc319238a644fb408"</span>,</span><br><span class="line">    <span class="string">"totalRank"</span>: <span class="string">"564d8494fe996c25652644d2"</span>,</span><br><span class="line">    <span class="string">"created"</span>: <span class="string">"2017-04-01T03:20:20.988Z"</span>,</span><br><span class="line">    <span class="string">"isSub"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"collapse"</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="string">"new"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"gender"</span>: <span class="string">"male"</span>,</span><br><span class="line">    <span class="string">"priority"</span>: <span class="number">250</span>,</span><br><span class="line">    <span class="string">"books"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"_id"</span>: <span class="string">"51d11e782de6405c45000068"</span>,</span><br><span class="line">        <span class="string">"author"</span>: <span class="string">"天蚕土豆"</span>,</span><br><span class="line">        <span class="string">"cover"</span>: <span class="string">"/agent/http://image.cmfu.com/books/2750457/2750457.jpg"</span>,</span><br><span class="line">        <span class="string">"shortIntro"</span>: <span class="string">"大千世界，位面交汇，万族林立，群雄荟萃，一位位来自下位面的天之至尊，在这无尽世界，演绎着令人向往的传奇，追求着那主宰之路。 无尽火域，炎帝执掌，万火焚苍穹。 武..."</span>,</span><br><span class="line">        <span class="string">"title"</span>: <span class="string">"大主宰"</span>,</span><br><span class="line">        <span class="string">"site"</span>: <span class="string">"zhuishuvip"</span>,</span><br><span class="line">        <span class="string">"cat"</span>: <span class="string">"玄幻"</span>,</span><br><span class="line">        <span class="string">"banned"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="string">"latelyFollower"</span>: <span class="number">359456</span>,</span><br><span class="line">        <span class="string">"retentionRatio"</span>: <span class="string">"45.31"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">    ...</span><br><span class="line">    ok: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="书评"><a href="#书评" class="headerlink" title="书评"></a>书评</h2><h3 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h3><p>url: <code>http://api.zhuishushenqi.com/post/by-book?&amp;start=21&amp;limit=20</code></p>
+<p>request:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">query strings: &#123;</span><br><span class="line">  book: &#123;bookId&#125;,</span><br><span class="line">  sort: (updated|created|comment-count) // 排序方式</span><br><span class="line">  type: (normal,vote) // 未知</span><br><span class="line">  start,</span><br><span class="line">  limit</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>response:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;posts&quot;: [&#123;</span><br><span class="line">		&quot;_id&quot;: &quot;59b25a1ca17d25ad324e208d&quot;,</span><br><span class="line">		&quot;author&quot;: &#123;</span><br><span class="line">			&quot;_id&quot;: &quot;54ef4d94704d6be45528af89&quot;,</span><br><span class="line">			&quot;avatar&quot;: &quot;/avatar/34/bb/34bbc2992b34e6a042a83be1f6f3b735&quot;, //http://statics.zhuishushenqi.com</span><br><span class="line">			&quot;nickname&quot;: &quot;追书家的小萝莉&quot;,</span><br><span class="line">			&quot;activityAvatar&quot;: &quot;/activities/20170120/1.jpg&quot;,</span><br><span class="line">			&quot;type&quot;: &quot;official&quot;,</span><br><span class="line">			&quot;lv&quot;: 9,</span><br><span class="line">			&quot;gender&quot;: &quot;female&quot;</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;type&quot;: &quot;vote&quot;,</span><br><span class="line">		&quot;likeCount&quot;: 371,</span><br><span class="line">		&quot;block&quot;: &quot;ramble&quot;,</span><br><span class="line">		&quot;haveImage&quot;: true,</span><br><span class="line">		&quot;state&quot;: &quot;normal&quot;,</span><br><span class="line">		&quot;updated&quot;: &quot;2017-09-16T05:38:16.092Z&quot;,</span><br><span class="line">		&quot;created&quot;: &quot;2017-09-08T08:51:40.345Z&quot;,</span><br><span class="line">		&quot;commentCount&quot;: 5309,</span><br><span class="line">		&quot;voteCount&quot;: 3980,</span><br><span class="line">		&quot;title&quot;: &quot;【真够刺激】答题拿红包！邀请好友满30元就能提现！★攻略真的不先看下么！&quot;</span><br><span class="line">	&#125;],</span><br><span class="line">	&quot;ok&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="短评"><a href="#短评" class="headerlink" title="短评"></a>短评</h3><p>url: <code>http://api.zhuishushenqi.com/post/short-review/by-book</code></p>
+<p>request:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query strings: &#123;</span><br><span class="line">  book: &#123;bookId&#125;,</span><br><span class="line">  sortType: (lastUpdated|newest|mostlike) //排序方式</span><br><span class="line">  start,</span><br><span class="line">  limit</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>response:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;docs&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;_id&quot;: &quot;596affc7fe0ad34f1b8317e3&quot;,</span><br><span class="line">      &quot;rating&quot;: 3,</span><br><span class="line">      &quot;type&quot;: &quot;short_review&quot;,</span><br><span class="line">      &quot;author&quot;: &#123;</span><br><span class="line">        &quot;_id&quot;: &quot;596ac9b85d0fe1b460155952&quot;,</span><br><span class="line">        &quot;avatar&quot;: &quot;/avatar/bd/bf/bdbf666388552ebb3166473e3f689dfd&quot;,</span><br><span class="line">        &quot;nickname&quot;: &quot;素心&quot;,</span><br><span class="line">        &quot;activityAvatar&quot;: &quot;&quot;,</span><br><span class="line">        &quot;type&quot;: &quot;normal&quot;,</span><br><span class="line">        &quot;lv&quot;: 4,</span><br><span class="line">        &quot;gender&quot;: &quot;female&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;book&quot;: &#123;</span><br><span class="line">        &quot;_id&quot;: &quot;51060c88bb1c67cf28000035&quot;,</span><br><span class="line">        &quot;cover&quot;: &quot;/agent/http%3A%2F%2Fimg.1391.com%2Fapi%2Fv1%2Fbookcenter%2Fcover%2F1%2F23766%2F_23766_549079.jpg%2F&quot;,</span><br><span class="line">        &quot;title&quot;: &quot;真灵九变&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;likeCount&quot;: 2,</span><br><span class="line">      &quot;priority&quot;: 0.497,</span><br><span class="line">      &quot;block&quot;: &quot;short_review&quot;,</span><br><span class="line">      &quot;state&quot;: &quot;normal&quot;,</span><br><span class="line">      &quot;updated&quot;: &quot;2017-08-06T09:58:26.733Z&quot;,</span><br><span class="line">      &quot;created&quot;: &quot;2017-07-16T05:55:19.277Z&quot;,</span><br><span class="line">      &quot;content&quot;: &quot;就是结尾有点烂尾了&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;ok&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="长评"><a href="#长评" class="headerlink" title="长评"></a>长评</h3><p>url: <code>http://api.zhuishushenqi.com/post/review/by-book?book=51060c88bb1c67cf28000035&amp;sort=updated&amp;start=0&amp;limit=20</code></p>
+<p>request:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">query strings: &#123;</span><br><span class="line">  book: &#123;bookId&#125;,</span><br><span class="line">  sort: (updated|created|comment-count),</span><br><span class="line">  start,</span><br><span class="line">  limit</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>response:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	&quot;total&quot;: 35,</span><br><span class="line">	&quot;reviews&quot;: [&#123;</span><br><span class="line">		&quot;_id&quot;: &quot;584201194fe8537c0f7fdf32&quot;,</span><br><span class="line">		&quot;rating&quot;: 1,</span><br><span class="line">		&quot;author&quot;: &#123;</span><br><span class="line">			&quot;_id&quot;: &quot;580cc42178afb3190f41f5ae&quot;,</span><br><span class="line">			&quot;avatar&quot;: &quot;/avatar/b3/70/b370b0054ae878829bfae3fe8ceacf3e&quot;,</span><br><span class="line">			&quot;nickname&quot;: &quot;……&quot;,</span><br><span class="line">			&quot;activityAvatar&quot;: &quot;/activities/20170120/4.jpg&quot;,</span><br><span class="line">			&quot;type&quot;: &quot;normal&quot;,</span><br><span class="line">			&quot;lv&quot;: 8,</span><br><span class="line">			&quot;gender&quot;: &quot;male&quot;</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;helpful&quot;: &#123;</span><br><span class="line">			&quot;total&quot;: 35,</span><br><span class="line">			&quot;yes&quot;: 117,</span><br><span class="line">			&quot;no&quot;: 82</span><br><span class="line">		&#125;,</span><br><span class="line">		&quot;likeCount&quot;: 5,</span><br><span class="line">		&quot;state&quot;: &quot;normal&quot;,</span><br><span class="line">		&quot;updated&quot;: &quot;2017-09-13T15:08:48.577Z&quot;,</span><br><span class="line">		&quot;created&quot;: &quot;2016-12-02T23:17:45.711Z&quot;,</span><br><span class="line">		&quot;commentCount&quot;: 76,</span><br><span class="line">		&quot;content&quot;: &quot;1）一边声明“猪脚资质一般”，一边又在没有“穿越神器”的情况下给猪脚开挂。修炼速度莫名其妙就比其他人快，这也是“资质一般”？能自圆其说不？\n\n2）明明是凡人流里那种勾心斗角杀人夺宝的世界，猪脚的朋友未免太多了吧？还各个都为猪脚着想，围着猪脚转？凡人流啊！那是神马鸡毛世界，那是人人都可能在你身后打闷棍的世界。想玩哥们弟兄义气江湖的，请出门左手见《飘渺之旅》下车。\n\n3）“俏皮、傲娇”的女主！我拉个擦，这个基本是所有YY书的鹤顶红了，本以为绝迹几千年，没想到还能见！\n\n4）师姐，不是1个，是10个！我进错门了吗？这是许仙传吗？真是许仙传就好了！这分明是睡裤外穿、浓妆艳抹的乡下小保姆嘛！\n\n5）美少妇师傅！你到底想写啥？玩后宫，人妻的请出门右转进晋江。\n\n6）N个陷害猪脚，差点让猪脚死球的同门，猪脚被坑了一次又一次，从来不报复，从来不想解决，于是被人从头坑到尾。请问，你是白求恩还是科利华？还是传说中的圣雄甘地？\n\n7）猪脚开挂升级也就罢了，猪脚的朋友们也是哥哥开挂。一开始书中声称“升溶血修士如何如何难，升锻蛋修士更是千中无一”，好，猪脚开挂，奇遇不断，十几年升到锻蛋！贫道以为这已经是牛逼透顶的了，结果再看，猪脚的朋友们也一个个都锻蛋了！这尼玛也是“如何如何难”？“千中无一”？？拜托你学凡人流，看过凡人没有？？？更恶心的是，就连猪脚随便找得几个土匪小弟，也一个个吃猪尿泡一样升锻蛋了。我。。。。叉。。。。&quot;,</span><br><span class="line">		&quot;title&quot;: &quot;个人观点，看书前最好看看！&quot;</span><br><span class="line">	&#125;],</span><br><span class="line">	&quot;ok&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="书单"><a href="#书单" class="headerlink" title="书单"></a>书单</h2><h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>url: <code>http://api.zhuishushenqi.com/book-list</code></p>
+<p>request: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">query string: &#123;</span><br><span class="line">  sort: (collectorCount|created),</span><br><span class="line">  duration: (last-seven-days|all),</span><br><span class="line">  gender: (male|female),</span><br><span class="line">  tag: (有点多),</span><br><span class="line">  start</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">说明:</span><br><span class="line"></span><br><span class="line">本周最热的query是: sort=collectorCount&amp;duration=last-seven-days&amp;start=0</span><br><span class="line">最新发布是: sort=created&amp;duration=all</span><br><span class="line">最多收藏是: sort=collectorCount&amp;duration=all</span><br></pre></td></tr></table></figure>
+<p>response:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;total&quot;: 241518,</span><br><span class="line">  &quot;bookLists&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;_id&quot;: &quot;57331505025ffaa06cb28852&quot;,</span><br><span class="line">      &quot;title&quot;: &quot;★星光书局 ★(04－20更&quot;,</span><br><span class="line">      &quot;author&quot;: &quot;人闲&quot;,</span><br><span class="line">      &quot;desc&quot;: &quot;☆准星（不好看），★一星，★★二星，★★★三星，★★★★，★★★★★五星 （持续更新中……）……………本期歌单:周慧敏《自作多情》、赵雷《已是两条路上的人》、张韶涵《寓言》、张惠妹《我最亲爱的》、张惠妹《哭砂》、张惠妹《剪爱》、张碧晨《渡红尘》、Amy Winehouse《You know I&apos;m no good》、邓紫棋《偶尔》、邓紫棋《喜欢你》、叶倩文《曾经心疼》、叶倩文《祝福》&quot;,</span><br><span class="line">      &quot;gender&quot;: &quot;male&quot;,</span><br><span class="line">      &quot;collectorCount&quot;: 96298,</span><br><span class="line">      &quot;cover&quot;: &quot;/agent/http%3A%2F%2Fimg.1391.com%2Fapi%2Fv1%2Fbookcenter%2Fcover%2F1%2F41678%2F_41678_412098.jpg%2F&quot;,</span><br><span class="line">      &quot;bookCount&quot;: 464</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;ok&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="详情"><a href="#详情" class="headerlink" title="详情"></a>详情</h3><p>url: <code>http://api.zhuishushenqi.com/book-list/:bookId</code></p>
+<p>request: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url params: &#123;</span><br><span class="line">  bookId: &#123;bookId&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>response:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;bookList&quot;: &#123;</span><br><span class="line">        &quot;_id&quot;: &quot;57331505025ffaa06cb28852&quot;,</span><br><span class="line">        &quot;updated&quot;: &quot;2017-05-25T03:18:20.437Z&quot;,</span><br><span class="line">        &quot;title&quot;: &quot;★星光书局 ★(04－20更&quot;,</span><br><span class="line">        &quot;author&quot;: &#123;</span><br><span class="line">            &quot;_id&quot;: &quot;568dcb55f08722bf2bdeeb38&quot;,</span><br><span class="line">            &quot;avatar&quot;: &quot;/avatar/41/32/41327b6d253592bb644fa4dd4c5c9b03&quot;,</span><br><span class="line">            &quot;nickname&quot;: &quot;人闲&quot;,</span><br><span class="line">            &quot;type&quot;: &quot;normal&quot;,</span><br><span class="line">            &quot;lv&quot;: 9</span><br><span class="line">        &#125;,</span><br><span class="line">        &quot;desc&quot;: &quot;☆准星（不好看），★一星，★★二星，★★★三星，★★★★，★★★★★五星 （持续更新中……）……………本期歌单:周慧敏《自作多情》、赵雷《已是两条路上的人》、张韶涵《寓言》、张惠妹《我最亲爱的》、张惠妹《哭砂》、张惠妹《剪爱》、张碧晨《渡红尘》、Amy Winehouse《You know I&apos;m no good》、邓紫棋《偶尔》、邓紫棋《喜欢你》、叶倩文《曾经心疼》、叶倩文《祝福》&quot;,</span><br><span class="line">        &quot;gender&quot;: &quot;male&quot;,</span><br><span class="line">        &quot;created&quot;: &quot;2016-05-11T11:18:29.278Z&quot;,</span><br><span class="line">        &quot;tags&quot;: [</span><br><span class="line">            &quot;热血&quot;,</span><br><span class="line">            &quot;都市&quot;,</span><br><span class="line">            &quot;现代&quot;</span><br><span class="line">        ],</span><br><span class="line">        &quot;stickStopTime&quot;: null,</span><br><span class="line">        &quot;isDraft&quot;: false,</span><br><span class="line">        &quot;isDistillate&quot;: false,</span><br><span class="line">        &quot;collectorCount&quot;: 96299,</span><br><span class="line">        &quot;books&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">                &quot;book&quot;: &#123;</span><br><span class="line">                    &quot;cat&quot;: &quot;东方玄幻&quot;,</span><br><span class="line">                    &quot;_id&quot;: &quot;579eaef492253c435235dbea&quot;,</span><br><span class="line">                    &quot;title&quot;: &quot;斗战狂潮&quot;,</span><br><span class="line">                    &quot;author&quot;: &quot;骷髅精灵&quot;,</span><br><span class="line">                    &quot;longIntro&quot;: &quot;双月当空，无限可能的英魂世界孤寂黑暗，神秘古怪的嬉命小丑百城联邦，三大帝国，异族横行，魂兽霸幽这是一个英雄辈出的年代，人类卧薪尝胆重掌地球主权，孕育着进军高纬度的野望！重点是……二年级的废柴学长王同学，如何使用嬉命轮盘，撬动整个世界，学妹们，请注意，学长来了！！！斗战一群：21222419（两千人战力群）骷髅的微信公共号：kuloujingling00新浪微博：骷髅精灵&quot;,</span><br><span class="line">                    &quot;cover&quot;: &quot;/agent/http%3A%2F%2Fimg.1391.com%2Fapi%2Fv1%2Fbookcenter%2Fcover%2F1%2F1286280%2F_1286280_696459.jpg%2F&quot;,</span><br><span class="line">                    &quot;site&quot;: &quot;zhuishuvip&quot;,</span><br><span class="line">                    &quot;majorCate&quot;: &quot;玄幻&quot;,</span><br><span class="line">                    &quot;minorCate&quot;: &quot;东方玄幻&quot;,</span><br><span class="line">                    &quot;banned&quot;: 0,</span><br><span class="line">                    &quot;latelyFollower&quot;: 26038,</span><br><span class="line">                    &quot;wordCount&quot;: 1962241,</span><br><span class="line">                    &quot;retentionRatio&quot;: 60.36</span><br><span class="line">                &#125;,</span><br><span class="line">                &quot;comment&quot;: &quot;★★二星…………&quot;</span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">        &quot;shareLink&quot;: &quot;http://share.zhuishushenqi.com/booklist/57331505025ffaa06cb28852&quot;,</span><br><span class="line">        &quot;id&quot;: &quot;57331505025ffaa06cb28852&quot;,</span><br><span class="line">        &quot;total&quot;: 464</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;ok&quot;: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="获取最新章节"><a href="#获取最新章节" class="headerlink" title="获取最新章节"></a>获取最新章节</h2><p>url: <code>http://api.zhuishushenqi.com/book</code></p>
+<p>request: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url params: &#123;</span><br><span class="line">  view: &apos;updated&apos;,</span><br><span class="line">  id: &apos;id=5afa99a6e1a9635af90fc802,55eef8b27445ad27755670b9&apos;  // bookId 多个使用,隔开</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>response:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span>: <span class="string">"5afa99a6e1a9635af90fc802"</span>,</span><br><span class="line">        <span class="string">"author"</span>: <span class="string">"上山打老虎额"</span>,</span><br><span class="line">        <span class="string">"allowMonthly"</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="string">"referenceSource"</span>: <span class="string">"default"</span>,</span><br><span class="line">        <span class="string">"updated"</span>: <span class="string">"2019-02-22T15:33:39.695Z"</span>,</span><br><span class="line">        <span class="string">"chaptersCount"</span>: <span class="number">1135</span>,</span><br><span class="line">        <span class="string">"lastChapter"</span>: <span class="string">"正文卷 第一千零七十三章：圣天子也"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"_id"</span>: <span class="string">"55eef8b27445ad27755670b9"</span>,</span><br><span class="line">        <span class="string">"author"</span>: <span class="string">"圣骑士的传说"</span>,</span><br><span class="line">        <span class="string">"allowMonthly"</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="string">"referenceSource"</span>: <span class="string">"default"</span>,</span><br><span class="line">        <span class="string">"updated"</span>: <span class="string">"2019-02-22T16:02:40.095Z"</span>,</span><br><span class="line">        <span class="string">"chaptersCount"</span>: <span class="number">2529</span>,</span><br><span class="line">        <span class="string">"lastChapter"</span>: <span class="string">"第2521章 角度就是这么刁钻"</span></span><br><span class="line">    &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/2019/04/25/hello-world/" class="next-post btn btn-default" title="Hello World">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Hello World</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: '0a6Qjjl2gHvSqkPF7iglNNvf-gzGzoHsz',
+            appKey: 'UKINFuSGgUOwjl6Ez9silbs8',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#带书籍数量的父分类"><span class="toc-text">带书籍数量的父分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#带子分类的父分类"><span class="toc-text">带子分类的父分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取分类书籍-categoryInfo"><span class="toc-text">获取分类书籍(categoryInfo)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#书籍"><span class="toc-text">书籍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#书籍详情"><span class="toc-text">书籍详情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#书籍章节"><span class="toc-text">书籍章节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#章节内容"><span class="toc-text">章节内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作者的书籍"><span class="toc-text">作者的书籍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排名"><span class="toc-text">排名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#排名分类"><span class="toc-text">排名分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排名详情"><span class="toc-text">排名详情</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#书评"><span class="toc-text">书评</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#讨论"><span class="toc-text">讨论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#短评"><span class="toc-text">短评</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#长评"><span class="toc-text">长评</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#书单"><span class="toc-text">书单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#列表"><span class="toc-text">列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详情"><span class="toc-text">详情</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取最新章节"><span class="toc-text">获取最新章节</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                </span> |
+                <span>
+                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                </span>
+                <!-- <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
