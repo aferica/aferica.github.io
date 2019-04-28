@@ -196,14 +196,10 @@
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/aferica/egg-api-sever</span><br><span class="line"><span class="built_in">cd</span> egg-api-sever</span><br><span class="line">yarn</span><br><span class="line">npm run dev</span><br><span class="line">open http://localhost:7001/</span><br></pre></td></tr></table></figure>
 <h3 id="方法二：使用官方推荐的egg-RESTfulAPI"><a href="#方法二：使用官方推荐的egg-RESTfulAPI" class="headerlink" title="方法二：使用官方推荐的egg-RESTfulAPI"></a>方法二：使用官方推荐的<a href="https://github.com/icxcat/egg-RESTfulAPI" target="_blank" rel="noopener">egg-RESTfulAPI</a></h3><blockquote>
-<p><strong>框架选择</strong>：基于 Egg.js 2.0<br><strong>数据模型</strong>：基于 Mongoose 存储<br><strong>授权验证</strong>：基于JWT<br><strong>内置功能</strong>：文件处理，用户系统，统一错误处理及接口返回标准，全方位CRUD,分页,模糊查询的等数据操作Demo<br><strong>最佳实践</strong>：接口设计适配 Ant Design Pro 或 微信小程序开发等。(内置分页及ant接口返回标准)   </p>
+<p><strong>框架选择</strong>：基于 Egg.js 2.0<br><strong>数据模型</strong>：基于 Mongoose 存储<br><strong>授权验证</strong>：基于JWT<br><strong>内置功能</strong>：文件处理，用户系统，统一错误处理及接口返回标准，全方位CRUD,分页,模糊查询的等数据操作Demo<br><strong>最佳实践</strong>：接口设计适配 Ant Design Pro 或 微信小程序开发等。(内置分页及ant接口返回标准)</p>
 </blockquote>
-<pre><code class="bash"><span class="built_in">cd</span> app &amp; mkdir public &amp; <span class="built_in">cd</span> public &amp; mkdir uploads
-npm i
-npm run dev 
-open http://localhost:7001/
-</code></pre>
-<h1 id="添加自己的模块"><a href="#添加自己的模块" class="headerlink" title="添加自己的模块"></a>添加自己的模块</h1><p>开发自己的模块主要需要添加或修改的文件有三个（如果使用mongoose的话则是四个）<br>分别是<br><code>app/router.js</code>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> app &amp; mkdir public &amp; <span class="built_in">cd</span> public &amp; mkdir uploads</span><br><span class="line">npm i</span><br><span class="line">npm run dev</span><br><span class="line">open http://localhost:7001/</span><br></pre></td></tr></table></figure>
+<h3 id="添加自己的模块"><a href="#添加自己的模块" class="headerlink" title="添加自己的模块"></a>添加自己的模块</h3><p>开发自己的模块主要需要添加或修改的文件有三个（如果使用mongoose的话则是四个）<br>分别是<br><code>app/router.js</code>  </p>
 <blockquote>
 <p>添加路由  </p>
 </blockquote>
@@ -282,7 +278,7 @@ open http://localhost:7001/
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境要求"><span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#egg项目结构"><span class="toc-text">egg项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速搭建API服务框架"><span class="toc-text">快速搭建API服务框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：使用我自己搭建的demo"><span class="toc-text">方法一：使用我自己搭建的demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：使用官方推荐的egg-RESTfulAPI"><span class="toc-text">方法二：使用官方推荐的egg-RESTfulAPI</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#添加自己的模块"><span class="toc-text">添加自己的模块</span></a></li>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境要求"><span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#egg项目结构"><span class="toc-text">egg项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速搭建API服务框架"><span class="toc-text">快速搭建API服务框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：使用我自己搭建的demo"><span class="toc-text">方法一：使用我自己搭建的demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：使用官方推荐的egg-RESTfulAPI"><span class="toc-text">方法二：使用官方推荐的egg-RESTfulAPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加自己的模块"><span class="toc-text">添加自己的模块</span></a></li></ol></li></ol>
         
     </div>
 </aside>
