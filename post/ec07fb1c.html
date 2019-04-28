@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Aferica的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://http://www.aferica.wang">
+    <!--SEO-->
+
+    <meta name="keywords" content="API,服务器,egg,Koa,Node">
+
+
+    <meta name="description" content="egg是阿里巴巴团队推出的基于Node.js和Koa的为企业级框架和应用详细文档，了解更多
+环境要求
+操作系统：支持 macOS，Linux，Windows
+运行环境：Node建议选择 LTS ...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>搭建自己API服务器（一）：使用egg快速搭建 | Aferica的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="aferica">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> aferica </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://http://www.aferica.wang">Aferica的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/API/"><i class="fa "></i>API</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="搭建自己API服务器（一）：使用egg快速搭建">
+            
+	            搭建自己API服务器（一）：使用egg快速搭建
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/后端/">后端</a> <a class="category-link" href="/categories/后端/Node/">Node</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/API/">API</a> <a class="tag-link" href="/tags/Koa/">Koa</a> <a class="tag-link" href="/tags/Node/">Node</a> <a class="tag-link" href="/tags/egg/">egg</a> <a class="tag-link" href="/tags/服务器/">服务器</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/04/28</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p><a href="https://eggjs.org/zh-cn/index.html" target="_blank" rel="noopener">egg</a>是阿里巴巴团队推出的基于Node.js和Koa的为企业级框架和应用<br><a href="https://eggjs.org/zh-cn/index.html" target="_blank" rel="noopener">详细文档，了解更多</a><br><!-- ![20190428163032.png](https://img.aferica.wang/markdown/20190428163032.png) --><br><img src="https://img.aferica.wang/markdown/20190428165355.png" alt="20190428165355.png"></p>
+<h1 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h1><ul>
+<li>操作系统：支持 macOS，Linux，Windows</li>
+<li>运行环境：Node建议选择 LTS 版本，最低要求 8.x。</li>
+</ul>
+<h1 id="egg项目结构"><a href="#egg项目结构" class="headerlink" title="egg项目结构"></a>egg项目结构</h1><p>该目录说明来源中egg文档，具体可查<a href="https://eggjs.org/zh-cn/basics/structure.html" target="_blank" rel="noopener">目录结构</a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">egg-project</span><br><span class="line">├── package.json</span><br><span class="line">├── app.js (可选)</span><br><span class="line">├── agent.js (可选)</span><br><span class="line">├── app</span><br><span class="line">|   ├── router.js</span><br><span class="line">│   ├── controller</span><br><span class="line">│   |   └── home.js</span><br><span class="line">│   ├── service (可选)</span><br><span class="line">│   |   └── user.js</span><br><span class="line">│   ├── middleware (可选)</span><br><span class="line">│   |   └── response_time.js</span><br><span class="line">│   ├── schedule (可选)</span><br><span class="line">│   |   └── my_task.js</span><br><span class="line">│   ├── public (可选)</span><br><span class="line">│   |   └── reset.css</span><br><span class="line">│   ├── view (可选)</span><br><span class="line">│   |   └── home.tpl</span><br><span class="line">│   └── extend (可选)</span><br><span class="line">│       ├── helper.js (可选)</span><br><span class="line">│       ├── request.js (可选)</span><br><span class="line">│       ├── response.js (可选)</span><br><span class="line">│       ├── context.js (可选)</span><br><span class="line">│       ├── application.js (可选)</span><br><span class="line">│       └── agent.js (可选)</span><br><span class="line">├── config</span><br><span class="line">|   ├── plugin.js</span><br><span class="line">|   ├── config.default.js</span><br><span class="line">│   ├── config.prod.js</span><br><span class="line">|   ├── config.test.js (可选)</span><br><span class="line">|   ├── config.local.js (可选)</span><br><span class="line">|   └── config.unittest.js (可选)</span><br><span class="line">└── <span class="built_in">test</span></span><br><span class="line">    ├── middleware</span><br><span class="line">    |   └── response_time.test.js</span><br><span class="line">    └── controller</span><br><span class="line">        └── home.test.js</span><br></pre></td></tr></table></figure></p>
+<p>如上，由框架约定的目录：</p>
+<ul>
+<li><code>app/router.js</code> 用于配置 URL 路由规则，具体参见 <a href="https://eggjs.org/zh-cn/basics/router.html" target="_blank" rel="noopener">Router</a>。</li>
+<li><code>app/controller/**</code> 用于解析用户的输入，处理后返回相应的结果，具体参见 <a href="https://eggjs.org/zh-cn/basics/controller.html" target="_blank" rel="noopener">Controller</a>。</li>
+<li><code>app/service/**</code> 用于编写业务逻辑层，可选，建议使用，具体参见 <a href="https://eggjs.org/zh-cn/basics/service.html" target="_blank" rel="noopener">Service</a>。</li>
+<li><code>app/middleware/**</code> 用于编写中间件，可选，具体参见 <a href="https://eggjs.org/zh-cn/basics/middleware.html" target="_blank" rel="noopener">Middleware</a>。</li>
+<li><code>app/public/**</code> 用于放置静态资源，可选，具体参见内置插件 <a href="https://github.com/eggjs/egg-static" target="_blank" rel="noopener">egg-static</a>。</li>
+<li><code>app/extend/**</code> 用于框架的扩展，可选，具体参见<a href="https://eggjs.org/zh-cn/basics/extend.html" target="_blank" rel="noopener">框架扩展</a>。</li>
+<li><code>config/config.{env}.js</code> 用于编写配置文件，具体参见<a href="https://eggjs.org/zh-cn/basics/config.html" target="_blank" rel="noopener">配置</a>。</li>
+<li><code>config/plugin.js</code> 用于配置需要加载的插件，具体参见<a href="https://eggjs.org/zh-cn/basics/plugin.html" target="_blank" rel="noopener">插件</a>。</li>
+<li><code>test/**</code> 用于单元测试，具体参见<a href="https://eggjs.org/zh-cn/core/unittest.html" target="_blank" rel="noopener">单元测试</a>。</li>
+<li><p><code>app.js</code> 和 <code>agent.js</code> 用于自定义启动时的初始化工作，可选，具体参见<a href="https://eggjs.org/zh-cn/basics/app-start.html" target="_blank" rel="noopener">启动自定义</a>。<br>由内置插件约定的目录：</p>
+</li>
+<li><p><code>app/public/**</code> 用于放置静态资源，可选，具体参见内置插件 <a href="https://github.com/eggjs/egg-static" target="_blank" rel="noopener">egg-static</a>。</p>
+</li>
+<li><code>app/schedule/**</code> 用于定时任务，可选，具体参见<a href="https://eggjs.org/zh-cn/basics/schedule.html" target="_blank" rel="noopener">定时任务</a>。</li>
+</ul>
+<p><strong>若需自定义自己的目录规范，参见 <a href="https://eggjs.org/zh-cn/advanced/loader.html" target="_blank" rel="noopener">Loader API</a></strong></p>
+<ul>
+<li><code>app/view/**</code> 用于放置模板文件，可选，由模板插件约定，具体参见<a href="https://eggjs.org/zh-cn/core/view.html" target="_blank" rel="noopener">模板渲染</a>。</li>
+<li><code>app/model/**</code> 用于放置领域模型，可选，由领域类相关插件约定，如 <a href="https://github.com/eggjs/egg-sequelize" target="_blank" rel="noopener">egg-sequelize</a>。</li>
+</ul>
+<h1 id="快速搭建API服务框架"><a href="#快速搭建API服务框架" class="headerlink" title="快速搭建API服务框架"></a>快速搭建API服务框架</h1><h3 id="方法一：使用我自己搭建的demo"><a href="#方法一：使用我自己搭建的demo" class="headerlink" title="方法一：使用我自己搭建的demo"></a>方法一：使用我自己搭建的<a href="https://github.com/aferica/egg-api-sever" target="_blank" rel="noopener">demo</a></h3><blockquote>
+<p>该demo是使用egg + mongodb + jsonwebtoken实现的一个简单的RESTful API服务器模板<br>具体说明查看项目介绍  </p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/aferica/egg-api-sever</span><br><span class="line"><span class="built_in">cd</span> egg-api-sever</span><br><span class="line">yarn</span><br><span class="line">npm run dev</span><br><span class="line">open http://localhost:7001/</span><br></pre></td></tr></table></figure>
+<h3 id="方法二：使用官方推荐的egg-RESTfulAPI"><a href="#方法二：使用官方推荐的egg-RESTfulAPI" class="headerlink" title="方法二：使用官方推荐的egg-RESTfulAPI"></a>方法二：使用官方推荐的<a href="https://github.com/icxcat/egg-RESTfulAPI" target="_blank" rel="noopener">egg-RESTfulAPI</a></h3><blockquote>
+<p><strong>框架选择</strong>：基于 Egg.js 2.0<br><strong>数据模型</strong>：基于 Mongoose 存储<br><strong>授权验证</strong>：基于JWT<br><strong>内置功能</strong>：文件处理，用户系统，统一错误处理及接口返回标准，全方位CRUD,分页,模糊查询的等数据操作Demo<br><strong>最佳实践</strong>：接口设计适配 Ant Design Pro 或 微信小程序开发等。(内置分页及ant接口返回标准)   </p>
+</blockquote>
+<pre><code class="bash"><span class="built_in">cd</span> app &amp; mkdir public &amp; <span class="built_in">cd</span> public &amp; mkdir uploads
+npm i
+npm run dev 
+open http://localhost:7001/
+</code></pre>
+<h1 id="添加自己的模块"><a href="#添加自己的模块" class="headerlink" title="添加自己的模块"></a>添加自己的模块</h1><p>开发自己的模块主要需要添加或修改的文件有三个（如果使用mongoose的话则是四个）<br>分别是<br><code>app/router.js</code>  </p>
+<blockquote>
+<p>添加路由  </p>
+</blockquote>
+<p><code>app/controller/***.js</code>  </p>
+<blockquote>
+<p>添加控制器  </p>
+</blockquote>
+<p><code>app/service/***.js</code>   </p>
+<blockquote>
+<p>添加服务层（主要用到数据库操作和逻辑实现）  </p>
+</blockquote>
+<p><code>app/model/***.js</code> （可选） </p>
+<blockquote>
+<p>放置领域模型  </p>
+</blockquote>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：转载请注明出处
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/post/7e479bd5.html" class="next-post btn btn-default" title="Chrome常用插件推荐">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Chrome常用插件推荐</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: '0a6Qjjl2gHvSqkPF7iglNNvf-gzGzoHsz',
+            appKey: 'UKINFuSGgUOwjl6Ez9silbs8',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境要求"><span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#egg项目结构"><span class="toc-text">egg项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速搭建API服务框架"><span class="toc-text">快速搭建API服务框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：使用我自己搭建的demo"><span class="toc-text">方法一：使用我自己搭建的demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：使用官方推荐的egg-RESTfulAPI"><span class="toc-text">方法二：使用官方推荐的egg-RESTfulAPI</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#添加自己的模块"><span class="toc-text">添加自己的模块</span></a></li>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                </span> |
+                <span>
+                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                </span>
+                <!-- <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
