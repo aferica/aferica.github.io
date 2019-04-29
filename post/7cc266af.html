@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Aferica的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://http://www.aferica.wang">
+    <!--SEO-->
+
+    <meta name="keywords" content="mongoDB,mongoose">
+
+
+    <meta name="description" content="Aggregate是MongoDB提供的众多工具中的比较重要的一个，类似于SQL语句中的GROUP BY。聚合工具可以让开发人员直接使用MongoDB原生的命令操作数据库中的数据，并且按照要求进...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>mongoDB中聚合aggregate使用 | Aferica的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="aferica">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> aferica </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://http://www.aferica.wang">Aferica的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/API/"><i class="fa "></i>API</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="mongoDB中聚合aggregate使用">
+            
+	            mongoDB中聚合aggregate使用
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/数据库/">数据库</a> <a class="category-link" href="/categories/数据库/mongoDB/">mongoDB</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/mongoDB/">mongoDB</a> <a class="tag-link" href="/tags/mongoose/">mongoose</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/04/29</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>Aggregate是MongoDB提供的众多工具中的比较重要的一个，类似于SQL语句中的GROUP BY。聚合工具可以让开发人员直接使用MongoDB原生的命令操作数据库中的数据，并且按照要求进行聚合。</p>
+<h1 id="Aggregation管道"><a href="#Aggregation管道" class="headerlink" title="Aggregation管道"></a>Aggregation管道</h1><blockquote>
+<p>管道聚合会将上一个命令输出的数据作为下一个命令的参<br>因此相同条件，不同顺序排列，结果也会不同<br>MongoDB中的管道聚合非常实用，提供高效的数据聚合，并且是MongoDB中数据聚合的首选方法   </p>
+</blockquote>
+<p>示例图：<br><img src="https://img.aferica.wang/markdown/20190429141421.png" alt="20190429141421.png"></p>
+<h1 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h1><h2 id="project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。"><a href="#project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。" class="headerlink" title="$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。"></a><em>$project</em>：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。</h2><p>示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db.xxx.aggregate(</span><br><span class="line">  &#123; <span class="variable">$project</span> : &#123;</span><br><span class="line">    // 默认情况下_id字段是被包含的，如果要想不包含_id话可以通过下面方式:</span><br><span class="line">    _id: 0,</span><br><span class="line">    title : 1 ,</span><br><span class="line">    author : 1 ,</span><br><span class="line">  &#125;&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h2 id="match：用于过滤数据，只输出符合条件的文档。-match使用MongoDB的标准查询操作。"><a href="#match：用于过滤数据，只输出符合条件的文档。-match使用MongoDB的标准查询操作。" class="headerlink" title="$match：用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询操作。"></a><em>$match</em>：用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询操作。</h2><p>示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">db.xxx.aggregate(</span><br><span class="line">  &#123; </span><br><span class="line">    <span class="variable">$match</span> : &#123;</span><br><span class="line">      publish_date: &#123;</span><br><span class="line">        <span class="variable">$lte</span>: <span class="string">'xxxx'</span>,</span><br><span class="line">        <span class="variable">$gt</span>: <span class="string">'xxxx'</span> </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h2 id="limit：用来限制MongoDB聚合管道返回的文档数。"><a href="#limit：用来限制MongoDB聚合管道返回的文档数。" class="headerlink" title="$limit：用来限制MongoDB聚合管道返回的文档数。"></a><em>$limit</em>：用来限制MongoDB聚合管道返回的文档数。</h2><p>示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.xxx.aggregate(</span><br><span class="line">  &#123; <span class="variable">$limit</span> : 10&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h2 id="skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。"><a href="#skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。" class="headerlink" title="$skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。"></a><em>$skip</em>：在聚合管道中跳过指定数量的文档，并返回余下的文档。</h2><p>示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.xxx.aggregate(</span><br><span class="line">  &#123; <span class="variable">$skip</span> : 20&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h2 id="unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。"><a href="#unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。" class="headerlink" title="$unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。"></a><em>$unwind</em>：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。</h2><blockquote>
+<p>该方法主要使用场景，统计数组类型字段中每一个类型数量，如：标签数据、演员数据<br>示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">db.xxx.aggregate(</span><br><span class="line">  &#123; <span class="variable">$unwind</span> : <span class="string">'$tags'</span>&#125;  // tags是字段名  前必须添加$符</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="group：将集合中的文档分组，可用于统计结果。"><a href="#group：将集合中的文档分组，可用于统计结果。" class="headerlink" title="$group：将集合中的文档分组，可用于统计结果。"></a><em>$group</em>：将集合中的文档分组，可用于统计结果。</h2><p>统计某个字段数量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">db.xxx.aggregate(</span><br><span class="line">  &#123; <span class="variable">$group</span> : &#123;</span><br><span class="line">    _id: <span class="string">'$title'</span>,  // titile是字段名  前必须添加$符</span><br><span class="line">    count: &#123; <span class="variable">$sum</span> :1 &#125; // 用作统计</span><br><span class="line">  &#125;&#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+<h2 id="sort：将输入文档排序后输出。"><a href="#sort：将输入文档排序后输出。" class="headerlink" title="$sort：将输入文档排序后输出。"></a><em>$sort</em>：将输入文档排序后输出。</h2><blockquote>
+<p>对统计结果排序  和普通排序命令相同<br>示例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">db.xxx.aggregate(</span><br><span class="line">  &#123; <span class="variable">$sort</span> : &#123;</span><br><span class="line">    count: -1 // 按照`<span class="variable">$group</span>`分组字段数量降序排序</span><br><span class="line">  &#125;&#125;  </span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：转载请注明出处
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/post/5eb2f156.html" class="pre-post btn btn-default" title="Vue-cli 3.0使用CDN引入依赖包和按需引入">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Vue-cli 3.0使用CDN引入依赖包和按需引入</span>
+        </a>
+    
+    
+        <a href="/post/65aa62c3.html" class="next-post btn btn-default" title="搭建自己API服务器（三）：部署到服务器">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">搭建自己API服务器（三）：部署到服务器</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: '0a6Qjjl2gHvSqkPF7iglNNvf-gzGzoHsz',
+            appKey: 'UKINFuSGgUOwjl6Ez9silbs8',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Aggregation管道"><span class="toc-text">Aggregation管道</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用操作"><span class="toc-text">常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。"><span class="toc-text">$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#match：用于过滤数据，只输出符合条件的文档。-match使用MongoDB的标准查询操作。"><span class="toc-text">$match：用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询操作。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#limit：用来限制MongoDB聚合管道返回的文档数。"><span class="toc-text">$limit：用来限制MongoDB聚合管道返回的文档数。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。"><span class="toc-text">$skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。"><span class="toc-text">$unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#group：将集合中的文档分组，可用于统计结果。"><span class="toc-text">$group：将集合中的文档分组，可用于统计结果。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sort：将输入文档排序后输出。"><span class="toc-text">$sort：将输入文档排序后输出。</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                </span> |
+                <span>
+                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                </span>
+                <!-- <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

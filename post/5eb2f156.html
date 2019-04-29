@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Aferica的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://http://www.aferica.wang">
+    <!--SEO-->
+
+    <meta name="keywords" content="Vue,CDN,Element,Vuex,Vue-cli3.0">
+
+
+    <meta name="description" content="在Vue开发中过程中，我们会引入许多的依赖包，例如：路由管理vue-router、状态管理vuex和以及一些UI组件库，如Element、iView等，甚至需要添加报表。在开发时我们不会感觉到太...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>Vue-cli 3.0使用CDN引入依赖包和按需引入 | Aferica的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="aferica">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> aferica </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://http://www.aferica.wang">Aferica的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/API/"><i class="fa "></i>API</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Vue-cli 3.0使用CDN引入依赖包和按需引入">
+            
+	            Vue-cli 3.0使用CDN引入依赖包和按需引入
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/前端/">前端</a> <a class="category-link" href="/categories/前端/Vue/">Vue</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/CDN/">CDN</a> <a class="tag-link" href="/tags/Element/">Element</a> <a class="tag-link" href="/tags/Vue/">Vue</a> <a class="tag-link" href="/tags/Vue-cli3-0/">Vue-cli3.0</a> <a class="tag-link" href="/tags/Vuex/">Vuex</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/04/29</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>在Vue开发中过程中，我们会引入许多的依赖包，例如：路由管理<code>vue-router</code>、状态管理<code>vuex</code>和以及一些UI组件库，如<code>Element</code>、<code>iView</code>等，甚至需要添加报表。<br>在开发时我们不会感觉到太大问题，但是当要部署的时候，<code>build</code>结果却提示文件过大<br>如下图（这是一个使用<code>Vue-cli 3.0</code>新建的项目，没有添加任何业务代码，只是引入了<code>Element</code>组件）：<br><img src="https://img.aferica.wang/markdown/20190429151550.png" alt="20190429151550.png"><br>可想而知，如果在引入其他组件，打包文件就会越来越大，严重影响首页加载速度</p>
+<blockquote>
+<p>以下操作都是基于<code>Vue-cli 3.0</code>项目  </p>
+</blockquote>
+<p>下面，我会一步步优化打包体积：</p>
+<h1 id="一、按需加载"><a href="#一、按需加载" class="headerlink" title="一、按需加载"></a>一、按需加载</h1><p><code>Element</code>官方提供了安秀加载示例，下面我们按照<a href="https://element.eleme.cn/#/zh-CN/component/quickstart" target="_blank" rel="noopener">官方教程</a>实现一遍，查看效果</p>
+<h2 id="安装babel-plugin-component依赖包（使用Vue-UI创建项目可忽略）"><a href="#安装babel-plugin-component依赖包（使用Vue-UI创建项目可忽略）" class="headerlink" title="安装babel-plugin-component依赖包（使用Vue UI创建项目可忽略）"></a>安装<code>babel-plugin-component</code>依赖包（使用Vue UI创建项目可忽略）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install babel-plugin-component -D</span><br><span class="line">// or</span><br><span class="line">yarn add babel-plugin-component --dev</span><br></pre></td></tr></table></figure>
+<h2 id="安装vue-cli-plugin-element依赖包（使用Vue-UI创建项目可忽略）"><a href="#安装vue-cli-plugin-element依赖包（使用Vue-UI创建项目可忽略）" class="headerlink" title="安装vue-cli-plugin-element依赖包（使用Vue UI创建项目可忽略）"></a>安装<code>vue-cli-plugin-element</code>依赖包（使用Vue UI创建项目可忽略）</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-cli-plugin-element -D</span><br><span class="line">// or</span><br><span class="line">yarn add vue-cli-plugin-element --dev</span><br></pre></td></tr></table></figure>
+<h2 id="覆盖babel-config-js文件（使用Vue-UI创建项目可忽略）"><a href="#覆盖babel-config-js文件（使用Vue-UI创建项目可忽略）" class="headerlink" title="覆盖babel.config.js文件（使用Vue UI创建项目可忽略）"></a>覆盖babel.config.js文件（使用Vue UI创建项目可忽略）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    <span class="string">"@vue/app"</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">"plugins"</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"component"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"libraryName"</span>: <span class="string">"element-ui"</span>,</span><br><span class="line">        <span class="string">"styleLibraryName"</span>: <span class="string">"theme-chalk"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="引入相关组件"><a href="#引入相关组件" class="headerlink" title="引入相关组件"></a>引入相关组件</h2><blockquote>
+<p>为了方便日后管理维护，我们新建<code>initEle.js</code>来管理引入组件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  Row,</span><br><span class="line">  Col,</span><br><span class="line">  Card,</span><br><span class="line">  Button,</span><br><span class="line">  Input,</span><br><span class="line">  Loading,</span><br><span class="line">  MessageBox,</span><br><span class="line">  Message,</span><br><span class="line">  Notification,</span><br><span class="line">  Popover,</span><br><span class="line">  Menu,</span><br><span class="line">  Submenu,</span><br><span class="line">  MenuItem,</span><br><span class="line">  MenuItemGroup,</span><br><span class="line">  Header,</span><br><span class="line">  Main</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'element-ui'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> initEle = <span class="function"><span class="params">Vue</span> =&gt;</span> &#123;</span><br><span class="line">  Vue.prototype.$loading = Loading.service</span><br><span class="line">  Vue.prototype.$msgbox = MessageBox</span><br><span class="line">  Vue.prototype.$alert = MessageBox.alert</span><br><span class="line">  Vue.prototype.$confirm = MessageBox.confirm</span><br><span class="line">  Vue.prototype.$prompt = MessageBox.prompt</span><br><span class="line">  Vue.prototype.$notify = Notification</span><br><span class="line">  Vue.prototype.$message = Message</span><br><span class="line">  Vue.use(Row)</span><br><span class="line">  Vue.use(Col)</span><br><span class="line">  Vue.use(Card)</span><br><span class="line">  Vue.use(Button)</span><br><span class="line">  Vue.use(Input)</span><br><span class="line">  Vue.use(Popover)</span><br><span class="line">  Vue.use(Menu)</span><br><span class="line">  Vue.use(Submenu)</span><br><span class="line">  Vue.use(MenuItem)</span><br><span class="line">  Vue.use(MenuItemGroup)</span><br><span class="line">  Vue.use(Header)</span><br><span class="line">  Vue.use(Main)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> initEle</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>打包后发现成效比较显著<br><img src="https://img.aferica.wang/markdown/20190429155433.png" alt="20190429155433.png"></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ul>
+<li>按需加载是通过不引入使用的组件来减少提交的，这是就会有一个问题：<br>如果是Element的重度用户，几乎引入了全部组件，那么按需引入的效果就不明显了</li>
+<li>即便不是重度用户，如果网站未使用<code>Gzipped</code>的话也显得较大</li>
+</ul>
+<h1 id="使用CDN引入依赖包"><a href="#使用CDN引入依赖包" class="headerlink" title="使用CDN引入依赖包"></a>使用CDN引入依赖包</h1><h2 id="在public-index-html文件中引入cdn"><a href="#在public-index-html文件中引入cdn" class="headerlink" title="在public/index.html文件中引入cdn"></a>在<code>public/index.html</code>文件中引入cdn</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 引入样式 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://cdn.bootcss.com/element-ui/2.7.2/theme-chalk/index.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>We're sorry but vue-template doesn't work properly without JavaScript enabled. Please enable it to continue.<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 注意：vue引入开发模式不能使用压缩后的js文件， 即 **.min.js格式， 否则会导致调试工具无法使用 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/vue/2.6.10/vue.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/vue-router/3.0.2/vue-router.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/vuex/3.1.0/vuex.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/axios/0.18.0/axios.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/element-ui/2.7.2/index.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- built files will be auto injected --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<h2 id="修改vue-config-js"><a href="#修改vue-config-js" class="headerlink" title="修改vue.config.js"></a>修改<code>vue.config.js</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// 添加cdn引用包</span></span><br><span class="line">  configureWebpack: &#123;</span><br><span class="line">    externals: &#123;</span><br><span class="line">      <span class="string">'vue'</span>: <span class="string">'Vue'</span>,</span><br><span class="line">      <span class="string">'vuex'</span>: <span class="string">'Vuex'</span>,</span><br><span class="line">      <span class="string">'vue-router'</span>: <span class="string">'VueRouter'</span>,</span><br><span class="line">      <span class="string">'axios'</span>:<span class="string">'axios'</span>,</span><br><span class="line">      <span class="string">'element-ui'</span>: <span class="string">'ELEMENT'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="覆盖babel-config-js文件"><a href="#覆盖babel-config-js文件" class="headerlink" title="覆盖babel.config.js文件"></a>覆盖babel.config.js文件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="string">"presets"</span>: [</span><br><span class="line">    <span class="string">"@vue/app"</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h2><p>打包后发现成效显著<br><img src="https://img.aferica.wang/markdown/20190429161504.png" alt="20190429161504.png"></p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>无需担心引入过多组件依旧导致包体积的问题</li>
+<li>使用公共可靠地cdn服务可以加速网站加载</li>
+<li>开发环境亦可以使用，配置完成后永绝后患</li>
+<li>几乎所有依赖包都可以通过此方式实现</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>需要确保cdn服务的稳定和安全</li>
+<li>使用cdn引入时，cdn引入的名称有时不一致且不明显，导致引入不成功</li>
+</ul>
+<h2 id="开发环境使用cdn"><a href="#开发环境使用cdn" class="headerlink" title="开发环境使用cdn"></a>开发环境使用cdn</h2><p>通过上述配置，在开发环境也可以使用cdn，不过要注意：</p>
+<blockquote>
+<p>如果需要使用<code>vue devtools</code>来调试，在引入vue的cdn是不能引入<code>*.min.js</code>压缩后的js，否则会导致无法使用调试</p>
+</blockquote>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：转载请注明出处
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/post/7cc266af.html" class="next-post btn btn-default" title="mongoDB中聚合aggregate使用">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">mongoDB中聚合aggregate使用</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: '0a6Qjjl2gHvSqkPF7iglNNvf-gzGzoHsz',
+            appKey: 'UKINFuSGgUOwjl6Ez9silbs8',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、按需加载"><span class="toc-text">一、按需加载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装babel-plugin-component依赖包（使用Vue-UI创建项目可忽略）"><span class="toc-text">安装babel-plugin-component依赖包（使用Vue UI创建项目可忽略）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装vue-cli-plugin-element依赖包（使用Vue-UI创建项目可忽略）"><span class="toc-text">安装vue-cli-plugin-element依赖包（使用Vue UI创建项目可忽略）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#覆盖babel-config-js文件（使用Vue-UI创建项目可忽略）"><span class="toc-text">覆盖babel.config.js文件（使用Vue UI创建项目可忽略）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引入相关组件"><span class="toc-text">引入相关组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结果"><span class="toc-text">结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用CDN引入依赖包"><span class="toc-text">使用CDN引入依赖包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在public-index-html文件中引入cdn"><span class="toc-text">在public/index.html文件中引入cdn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改vue-config-js"><span class="toc-text">修改vue.config.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#覆盖babel-config-js文件"><span class="toc-text">覆盖babel.config.js文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结果-1"><span class="toc-text">结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缺点"><span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境使用cdn"><span class="toc-text">开发环境使用cdn</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                </span> |
+                <span>
+                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                </span>
+                <!-- <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
