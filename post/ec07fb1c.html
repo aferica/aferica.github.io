@@ -16,7 +16,7 @@
     <link rel="dns-prefetch" href="http://http://www.aferica.wang">
     <!--SEO-->
 
-    <meta name="keywords" content="API,服务器,egg,Koa,Node">
+    <meta name="keywords" content="API,服务器,egg,Node">
 
 
     <meta name="description" content="egg是阿里巴巴团队推出的基于Node.js和Koa的为企业级框架和应用详细文档，了解更多
@@ -151,7 +151,7 @@
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/API/">API</a> <a class="tag-link" href="/tags/Koa/">Koa</a> <a class="tag-link" href="/tags/Node/">Node</a> <a class="tag-link" href="/tags/egg/">egg</a> <a class="tag-link" href="/tags/服务器/">服务器</a>
+                    <a class="tag-link" href="/tags/API/">API</a> <a class="tag-link" href="/tags/Node/">Node</a> <a class="tag-link" href="/tags/egg/">egg</a> <a class="tag-link" href="/tags/服务器/">服务器</a>
                 
             </span>
         </span>
@@ -199,30 +199,20 @@
 <li><code>app/view/**</code> 用于放置模板文件，可选，由模板插件约定，具体参见<a href="https://eggjs.org/zh-cn/core/view.html" target="_blank" rel="noopener">模板渲染</a>。</li>
 <li><code>app/model/**</code> 用于放置领域模型，可选，由领域类相关插件约定，如 <a href="https://github.com/eggjs/egg-sequelize" target="_blank" rel="noopener">egg-sequelize</a>。</li>
 </ul>
-<h1 id="快速搭建API服务框架"><a href="#快速搭建API服务框架" class="headerlink" title="快速搭建API服务框架"></a>快速搭建API服务框架</h1><h3 id="方法一：使用我自己搭建的demo"><a href="#方法一：使用我自己搭建的demo" class="headerlink" title="方法一：使用我自己搭建的demo"></a>方法一：使用我自己搭建的<a href="https://github.com/aferica/egg-api-sever" target="_blank" rel="noopener">demo</a></h3><blockquote>
+<h1 id="快速搭建API服务框架"><a href="#快速搭建API服务框架" class="headerlink" title="快速搭建API服务框架"></a>快速搭建API服务框架</h1><h2 id="方法一：使用我自己搭建的demo"><a href="#方法一：使用我自己搭建的demo" class="headerlink" title="方法一：使用我自己搭建的demo"></a>方法一：使用我自己搭建的<a href="https://github.com/aferica/egg-api-sever" target="_blank" rel="noopener">demo</a></h2><blockquote>
 <p>该demo是使用egg + mongodb + jsonwebtoken实现的一个简单的RESTful API服务器模板<br>具体说明查看项目介绍  </p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/aferica/egg-api-sever</span><br><span class="line"><span class="built_in">cd</span> egg-api-sever</span><br><span class="line">yarn</span><br><span class="line">npm run dev</span><br><span class="line">open http://localhost:7001/</span><br></pre></td></tr></table></figure>
-<h3 id="方法二：使用官方推荐的egg-RESTfulAPI"><a href="#方法二：使用官方推荐的egg-RESTfulAPI" class="headerlink" title="方法二：使用官方推荐的egg-RESTfulAPI"></a>方法二：使用官方推荐的<a href="https://github.com/icxcat/egg-RESTfulAPI" target="_blank" rel="noopener">egg-RESTfulAPI</a></h3><blockquote>
+<h2 id="方法二：使用官方推荐的egg-RESTfulAPI"><a href="#方法二：使用官方推荐的egg-RESTfulAPI" class="headerlink" title="方法二：使用官方推荐的egg-RESTfulAPI"></a>方法二：使用官方推荐的<a href="https://github.com/icxcat/egg-RESTfulAPI" target="_blank" rel="noopener">egg-RESTfulAPI</a></h2><blockquote>
 <p><strong>框架选择</strong>：基于 Egg.js 2.0<br><strong>数据模型</strong>：基于 Mongoose 存储<br><strong>授权验证</strong>：基于JWT<br><strong>内置功能</strong>：文件处理，用户系统，统一错误处理及接口返回标准，全方位CRUD,分页,模糊查询的等数据操作Demo<br><strong>最佳实践</strong>：接口设计适配 Ant Design Pro 或 微信小程序开发等。(内置分页及ant接口返回标准)</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> app &amp; mkdir public &amp; <span class="built_in">cd</span> public &amp; mkdir uploads</span><br><span class="line">npm i</span><br><span class="line">npm run dev</span><br><span class="line">open http://localhost:7001/</span><br></pre></td></tr></table></figure>
-<h3 id="添加自己的模块"><a href="#添加自己的模块" class="headerlink" title="添加自己的模块"></a>添加自己的模块</h3><p>开发自己的模块主要需要添加或修改的文件有三个（如果使用mongoose的话则是四个）<br>分别是<br><code>app/router.js</code>  </p>
-<blockquote>
-<p>添加路由  </p>
+<h1 id="配置管理"><a href="#配置管理" class="headerlink" title="配置管理"></a>配置管理</h1><p>egg框架提供了强大且可扩展的配置功能，可以自动合并应用、插件、框架的配置，按顺序覆盖，且可以根据环境维护不同的配置。合并后的配置可直接从 app.config 获取。</p>
+<h2 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h2><blockquote>
+<p>多个环境配置文件，适用于多种环境，方便管理维护  </p>
 </blockquote>
-<p><code>app/controller/***.js</code>  </p>
-<blockquote>
-<p>添加控制器  </p>
-</blockquote>
-<p><code>app/service/***.js</code>   </p>
-<blockquote>
-<p>添加服务层（主要用到数据库操作和逻辑实现）  </p>
-</blockquote>
-<p><code>app/model/***.js</code> （可选） </p>
-<blockquote>
-<p>放置领域模型  </p>
-</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">config</span><br><span class="line">|- config.default.js    // 默认配置文件</span><br><span class="line">|- config.prod.js       // 正式环境配置文件</span><br><span class="line">|- config.test.js       // 测试配置文件</span><br></pre></td></tr></table></figure>
+<h2 id="配置示例"><a href="#配置示例" class="headerlink" title="配置示例"></a>配置示例</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// egg-mongoose配置</span></span><br><span class="line">config.mongoose = &#123;</span><br><span class="line">  url: <span class="string">'mongodb://127.0.0.1:27017/egg_x'</span>,</span><br><span class="line">  options: &#123;</span><br><span class="line">    useMongoClient: <span class="literal">true</span>,</span><br><span class="line">    autoReconnect: <span class="literal">true</span>,</span><br><span class="line">    reconnectTries: <span class="built_in">Number</span>.MAX_VALUE,</span><br><span class="line">    bufferMaxEntries: <span class="number">0</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// jwt配置</span></span><br><span class="line">config.jwt = &#123;</span><br><span class="line">  secret: <span class="string">'Great4-M'</span>,</span><br><span class="line">  enable: <span class="literal">true</span>, <span class="comment">// default is false</span></span><br><span class="line">  match: <span class="string">'/jwt'</span>, <span class="comment">// optional</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
     
@@ -239,6 +229,11 @@
 </article>
 
 <div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/post/23e54749.html" class="pre-post btn btn-default" title="搭建自己API服务器（二）：添加功能模块">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">搭建自己API服务器（二）：添加功能模块</span>
+        </a>
     
     
         <a href="/post/7e479bd5.html" class="next-post btn btn-default" title="Chrome常用插件推荐">
@@ -286,7 +281,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境要求"><span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#egg项目结构"><span class="toc-text">egg项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速搭建API服务框架"><span class="toc-text">快速搭建API服务框架</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：使用我自己搭建的demo"><span class="toc-text">方法一：使用我自己搭建的demo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：使用官方推荐的egg-RESTfulAPI"><span class="toc-text">方法二：使用官方推荐的egg-RESTfulAPI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加自己的模块"><span class="toc-text">添加自己的模块</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#环境要求"><span class="toc-text">环境要求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#egg项目结构"><span class="toc-text">egg项目结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#快速搭建API服务框架"><span class="toc-text">快速搭建API服务框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法一：使用我自己搭建的demo"><span class="toc-text">方法一：使用我自己搭建的demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法二：使用官方推荐的egg-RESTfulAPI"><span class="toc-text">方法二：使用官方推荐的egg-RESTfulAPI</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置管理"><span class="toc-text">配置管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#多环境配置"><span class="toc-text">多环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置示例"><span class="toc-text">配置示例</span></a></li></ol></li></ol>
         
     </div>
 </aside>
