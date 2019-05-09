@@ -1,5 +1,4 @@
 # robots.txt 
 User-agent: *
-Disallow： .jpg$
 Sitemap: https://www.aferica.wang/sitemap.xml
 Sitemap: https://www.aferica.wang/baidusitemap.xml
