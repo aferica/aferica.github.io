@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Aferica的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://http://www.aferica.wang">
+    <!--SEO-->
+
+    <meta name="keywords" content="wepy,小程序,ColorUI">
+
+
+    <meta name="description" content="好些天没有写博客了，经常感觉自己是一个虎头蛇尾的人，刚接触或者兴致来的时候干劲十足，但是坚持不了多久。搭建这个博客系统就是为了能够给自己一些压力，坚持才是胜利。这次五一算是很长的一盒假期，四天里...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>wepy小程序引入ColorUI | Aferica的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="aferica">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> aferica </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://http://www.aferica.wang">Aferica的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/API/"><i class="fa "></i>API</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="wepy小程序引入ColorUI">
+            
+	            wepy小程序引入ColorUI
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/前端/">前端</a> <a class="category-link" href="/categories/前端/小程序/">小程序</a> <a class="category-link" href="/categories/前端/小程序/wepy/">wepy</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/ColorUI/">ColorUI</a> <a class="tag-link" href="/tags/wepy/">wepy</a> <a class="tag-link" href="/tags/小程序/">小程序</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/05/09</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>好些天没有写博客了，经常感觉自己是一个虎头蛇尾的人，刚接触或者兴致来的时候干劲十足，但是坚持不了多久。搭建这个博客系统就是为了能够给自己一些压力，坚持才是胜利。<br>这次五一算是很长的一盒假期，四天里，我感觉自己过得真的是又颓废又尽兴，每天晚上玩到凌晨四五点，下午三四点才起床，然后又开始玩到凌晨四五点，真的是醉生梦死，太恐怖了！</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>随着腾讯的大力推广和用户的熟悉，小程序已经应用在很多场景里面，自然而然，也随之衍生出很多开发框架和组件库。这次我写的是使用<code>wepy</code>作为开发框架和使用<code>ColorUI</code>来开发小程序。</p>
+<h1 id="开发框架–wepy"><a href="#开发框架–wepy" class="headerlink" title="开发框架–wepy"></a>开发框架–wepy</h1><p><code>wepy</code>是又腾讯官方出品的，让小程序支持组件化开发的框架。从Github的Star数来说，还是可以说得上是<code>一个最受欢迎的小程序框架</code>。<br>官方文档地址<a href="https://tencent.github.io/wepy/index.html" target="_blank" rel="noopener">WePY | 小程序组件化开发框架</a><br>具体怎么使用我就不说了，毕竟文档说的也比较清楚了，我主要说的是我为什么使用<code>wepy</code>，即他的优势：</p>
+<ul>
+<li>支持组件化开发（似乎除了原生，其他开发框架都支持）</li>
+<li>支持 slot 组件内容分发插槽</li>
+<li>支持 Promise，解决回调烦恼</li>
+<li>提供的全局拦截器对原生API的请求进行拦截（这一点很赞）</li>
+</ul>
+<h1 id="UI组件–ColorUI"><a href="#UI组件–ColorUI" class="headerlink" title="UI组件–ColorUI"></a>UI组件–ColorUI</h1><p><code>ColorUI</code>是一个css组件库，即所有组件都是通过css实现的，这一点很大佬。而且配色丰富，鲜亮，非常好看。<br>另外，<code>ColorUI</code>提供了一些很棒的，让人眼前一亮的组件或者案例，很有参考、学习的价值。<br>官方文档地址<a href="https://www.color-ui.com/" target="_blank" rel="noopener">鲜亮的高饱和色彩，专注视觉的小程序组件库</a></p>
+<h1 id="结合使用"><a href="#结合使用" class="headerlink" title="结合使用"></a>结合使用</h1><p>由于<code>ColorUI</code>官方示例只有使用<code>UniApp</code>开发和原生开发的案例，所以我尝试了在wepy中使用。<br>同时我也在issues中回答了这个问题，也可以移步这里<a href="https://github.com/weilanwl/ColorUI/issues/60" target="_blank" rel="noopener">wepy中怎么引入呢</a></p>
+<h2 id="引入样式文件"><a href="#引入样式文件" class="headerlink" title="引入样式文件"></a>引入样式文件</h2><p>引入样式文件和文档介绍没有差别，只需要在app.wpy文件中引入即可<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=<span class="string">"less"</span>&gt;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">"./colorui/main.wxss"</span>;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">"./colorui/icon.wxss"</span>;</span><br><span class="line"></span><br><span class="line">... <span class="comment">//自定义样式</span></span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="使用自定义导航栏"><a href="#使用自定义导航栏" class="headerlink" title="使用自定义导航栏"></a>使用自定义导航栏</h2><p>不得不说，<code>ColorUI</code>的自定义导航栏真的让人眼前一亮</p>
+<blockquote>
+<p>修改配置文件<br><code>app.wpy</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">config = &#123;</span><br><span class="line">    pages: [</span><br><span class="line">      <span class="string">'pages/index'</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="built_in">window</span>: &#123;</span><br><span class="line">      backgroundTextStyle: <span class="string">'light'</span>,</span><br><span class="line">      navigationBarBackgroundColor: <span class="string">'#fff'</span>,</span><br><span class="line">      navigationBarTitleText: <span class="string">'WeChat'</span>,</span><br><span class="line">      navigationBarTextStyle: <span class="string">'white'</span>,</span><br><span class="line">      navigationStyle: <span class="string">'custom'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 添加三个全局变量</span></span><br><span class="line">  globalData = &#123;</span><br><span class="line">    userInfo: <span class="literal">null</span>,</span><br><span class="line">    StatusBar: <span class="string">''</span>,</span><br><span class="line">    Custom: <span class="string">''</span>,</span><br><span class="line">    CustomBar: &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span> () &#123;</span><br><span class="line">    <span class="keyword">super</span>()</span><br><span class="line">    <span class="keyword">this</span>.use(<span class="string">'requestfix'</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onLaunch() &#123;</span><br><span class="line">    <span class="keyword">this</span>.testAsync()</span><br><span class="line">    <span class="comment">// 获取设备信息赋值给全局变量</span></span><br><span class="line">    wx.getSystemInfo(&#123;</span><br><span class="line">      success: <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.globalData.StatusBar = e.statusBarHeight</span><br><span class="line">        <span class="keyword">let</span> custom = wx.getMenuButtonBoundingClientRect()</span><br><span class="line">        <span class="keyword">this</span>.globalData.Custom = custom</span><br><span class="line">        <span class="keyword">this</span>.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>重写（或者说是复制，因为原生代码几乎不需要改动，复制合并即可）<code>cu-custom</code>组件，因为原生组件中app.globalData获取不到数据  </p>
+</blockquote>
+<p><code>cu-custom.wpy</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">&lt;style lang=<span class="string">"less"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp">&lt;template&gt;</span></span><br><span class="line"><span class="regexp">  &lt;view class="cu-custom" style="height: &#123;&#123;CustomBar&#125;&#125;px"&gt;</span></span><br><span class="line"><span class="regexp">    &lt;view class="cu-bar fixed &#123;&#123;bgImage!=''?'none-bg text-white bg-img':''&#125;&#125; &#123;&#123;bgColor&#125;&#125;" style="height:&#123;&#123;CustomBar&#125;&#125;px;padding-top:&#123;&#123;StatusBar&#125;&#125;px;&#123;&#123;bgImage?'background-image:url(' + bgImage+')':''&#125;&#125;"&gt;</span></span><br><span class="line"><span class="regexp">      &lt;view class="action" bindtap="BackPage" wx:if="&#123;&#123;isBack&#125;&#125;"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;text class="cuIcon-back"&gt;&lt;/</span>text&gt;</span><br><span class="line">        &lt;slot name=<span class="string">"backText"</span>&gt;&lt;/slot&gt;</span><br><span class="line">      &lt;<span class="regexp">/view&gt;</span></span><br><span class="line"><span class="regexp">      &lt;view class="action border-custom"  wx:if="&#123;&#123;isCustom&#125;&#125;" style="width:&#123;&#123;Custom.width&#125;&#125;px;height:&#123;&#123;Custom.height&#125;&#125;px;margin-left:calc(750rpx - &#123;&#123;Custom.right&#125;&#125;px)"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;text class="cuIcon-back" bindtap="BackPage"&gt;&lt;/</span>text&gt;</span><br><span class="line">        &lt;text <span class="class"><span class="keyword">class</span></span>=<span class="string">"cuIcon-homefill"</span> bindtap=<span class="string">"toHome"</span>&gt;&lt;/text&gt;</span><br><span class="line">      &lt;<span class="regexp">/view&gt;</span></span><br><span class="line"><span class="regexp">      &lt;view class="content" style="top:&#123;&#123;StatusBar&#125;&#125;px"&gt;</span></span><br><span class="line"><span class="regexp">        &lt;slot name="content"&gt;&lt;/</span>slot&gt;</span><br><span class="line">      &lt;<span class="regexp">/view&gt;</span></span><br><span class="line"><span class="regexp">      &lt;slot name="right"&gt;&lt;/</span>slot&gt;</span><br><span class="line">    &lt;<span class="regexp">/view&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>view&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">  import wepy from 'wepy'</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  export default class CuCustom extends wepy.component &#123;</span></span><br><span class="line"><span class="regexp">    props = &#123;</span></span><br><span class="line"><span class="regexp">      bgColor: &#123;</span></span><br><span class="line"><span class="regexp">        type: String,</span></span><br><span class="line"><span class="regexp">        default: ''</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      isCustom: &#123;</span></span><br><span class="line"><span class="regexp">        type: [Boolean, String],</span></span><br><span class="line"><span class="regexp">        default: false</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      isBack: &#123;</span></span><br><span class="line"><span class="regexp">        type: [Boolean, String],</span></span><br><span class="line"><span class="regexp">        default: false</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      bgImage: &#123;</span></span><br><span class="line"><span class="regexp">        type: String,</span></span><br><span class="line"><span class="regexp">        default: ''</span></span><br><span class="line"><span class="regexp">      &#125;</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    /</span><span class="regexp">/  获取导航栏样式信息</span></span><br><span class="line"><span class="regexp">    data = &#123;</span></span><br><span class="line"><span class="regexp">      StatusBar: wepy.$instance.globalData.StatusBar,</span></span><br><span class="line"><span class="regexp">      CustomBar: wepy.$instance.globalData.CustomBar,</span></span><br><span class="line"><span class="regexp">      Custom: wepy.$instance.globalData.Custom</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    methods = &#123;</span></span><br><span class="line"><span class="regexp">      BackPage () &#123;</span></span><br><span class="line"><span class="regexp">        wepy.navigateBack(&#123;</span></span><br><span class="line"><span class="regexp">          delta: 1</span></span><br><span class="line"><span class="regexp">        &#125;)</span></span><br><span class="line"><span class="regexp">      &#125;,</span></span><br><span class="line"><span class="regexp">      toHome () &#123;</span></span><br><span class="line"><span class="regexp">        wepy.reLaunch(&#123;</span></span><br><span class="line"><span class="regexp">          url: '/</span>pages/index<span class="string">'</span></span><br><span class="line"><span class="string">        &#125;)</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    onLoad () &#123;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>在需要的页面在引入  </p>
+</blockquote>
+<p><code>pages/index.wpy</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;view&gt;</span><br><span class="line">    &lt;CuCustom bgColor=<span class="string">"bg-gradual-blue"</span>&gt;</span><br><span class="line">      &lt;view slot=<span class="string">"content"</span>&gt;导航栏&lt;<span class="regexp">/view&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>CuCustom&gt;</span><br><span class="line">    ...  <span class="comment">// 页面其他内容</span></span><br><span class="line">  &lt;<span class="regexp">/view&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">import</span> CuCustom <span class="keyword">from</span> <span class="string">'../components/cu-custom'</span></span><br><span class="line">  </span><br><span class="line"> <span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Index</span> <span class="keyword">extends</span> <span class="title">wepy</span>.<span class="title">page</span> </span>&#123;</span><br><span class="line">    components = &#123;</span><br><span class="line">      CuCustom</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h2><p>每次使用都需要在页面中引入，不怎么方便</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：转载请注明出处
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/post/5eb2f156.html" class="next-post btn btn-default" title="Vue-cli 3.0使用CDN引入依赖包和按需引入">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Vue-cli 3.0使用CDN引入依赖包和按需引入</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: '0a6Qjjl2gHvSqkPF7iglNNvf-gzGzoHsz',
+            appKey: 'UKINFuSGgUOwjl6Ez9silbs8',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开发框架–wepy"><span class="toc-text">开发框架–wepy</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UI组件–ColorUI"><span class="toc-text">UI组件–ColorUI</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#结合使用"><span class="toc-text">结合使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引入样式文件"><span class="toc-text">引入样式文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用自定义导航栏"><span class="toc-text">使用自定义导航栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存在问题"><span class="toc-text">存在问题</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                </span> |
+                <span>
+                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                </span>
+                <!-- <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
