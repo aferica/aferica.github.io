@@ -19,8 +19,7 @@
     <meta name="keywords" content="Flutter,移动开发">
 
 
-    <meta name="description" content="在上一篇博文中，我简单的介绍了一些Flutter的知识和优势以及环境配置问题，在本篇博文中，我主要介绍一下常用到的几种Flutter常用布局控件和使用方法。
-Container本段介绍来自Flu...">
+    <meta name="description" content="在上一篇博文中，我简单的介绍了一些Flutter的知识和优势以及环境配置问题，在本篇博文中，我主要介绍一下常用到的几种Flutter常用布局控件和使用方法。首先，我们先来一张Flutter基本空...">
 
 
 
@@ -177,7 +176,7 @@ Container本段介绍来自Flu...">
     </div>
     
     <div class="post-body post-content">
-        <p>在上一篇博文中，我简单的介绍了一些Flutter的知识和优势以及环境配置问题，在本篇博文中，我主要介绍一下常用到的几种Flutter常用布局控件和使用方法。<br><img src="https://img.aferica.wang/markdown/20190530001154.png" alt="20190530001154.png"></p>
+        <p>在上一篇博文中，我简单的介绍了一些Flutter的知识和优势以及环境配置问题，在本篇博文中，我主要介绍一下常用到的几种Flutter常用布局控件和使用方法。<br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190530001154.png" alt="20190530001154.png"><br>首先，我们先来一张Flutter基本空间继承关系图：<br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190531165341.png" alt="20190531165341.png"></p>
 <h1 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h1><p>本段介绍来自<a href="https://www.jianshu.com/p/366b2446eaab" target="_blank" rel="noopener">Flutter 布局（一）- Container详解</a><br><code>Container</code>是Flutter最常使用的布局控件之一</p>
 <h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
 <li>需要设置间隔（这种情况下，如果只是单纯的间隔，也可以通过Padding来实现）；</li>
@@ -211,7 +210,7 @@ Container本段介绍来自Flu...">
 <h2 id="属性解析-1"><a href="#属性解析-1" class="headerlink" title="属性解析"></a>属性解析</h2><ul>
 <li>key：Flutter控件（Widget）唯一标识符，用于查找更新。</li>
 <li>mainAxisAlignment：子元素对齐方式，MainAxisAlignment对象，类似于css中的<code>justify-content</code>和<code>align-content</code>，<blockquote>
-<p>有六种对齐方式：<br><code>start</code>开始（左侧或顶部）对齐<br><code>end</code>开始（右侧或底部）对齐<br><code>center</code>居中对齐<br><code>spaceBetween</code>子元素之间留有空白，但第一个元素之前和最后一个元素之后不留空白，类似于css中<code>space-between</code><br><img src="https://img.aferica.wang/markdown/de76ada5cdf9305499b1b02eb32a934.jpg" alt="de76ada5cdf9305499b1b02eb32a934.jpg"><br><code>spaceAround</code>子元素之间留有空白，第一个元素之前和最后一个元素之后留一半的空白，类似于css中<code>space-around</code><br><img src="https://img.aferica.wang/markdown/d0e861bfffb9e1b051c9c08c94e35a4.jpg" alt="d0e861bfffb9e1b051c9c08c94e35a4.jpg"><br><code>spaceEvenly</code>子元素之间留有空白，第一个元素之前和最后一个元素之后留相等的空白，类似于css中<code>space-around</code><br><img src="https://img.aferica.wang/markdown/67281de4285163df268f40f822e0f3e.jpg" alt="67281de4285163df268f40f822e0f3e.jpg">  </p>
+<p>有六种对齐方式：<br><code>start</code>开始（左侧或顶部）对齐<br><code>end</code>开始（右侧或底部）对齐<br><code>center</code>居中对齐<br><code>spaceBetween</code>子元素之间留有空白，但第一个元素之前和最后一个元素之后不留空白，类似于css中<code>space-between</code><br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/de76ada5cdf9305499b1b02eb32a934.jpg" alt="de76ada5cdf9305499b1b02eb32a934.jpg"><br><code>spaceAround</code>子元素之间留有空白，第一个元素之前和最后一个元素之后留一半的空白，类似于css中<code>space-around</code><br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/d0e861bfffb9e1b051c9c08c94e35a4.jpg" alt="d0e861bfffb9e1b051c9c08c94e35a4.jpg"><br><code>spaceEvenly</code>子元素之间留有空白，第一个元素之前和最后一个元素之后留相等的空白，类似于css中<code>space-around</code><br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/67281de4285163df268f40f822e0f3e.jpg" alt="67281de4285163df268f40f822e0f3e.jpg">  </p>
 </blockquote>
 </li>
 <li>mainAxisSize：主方向大小，有min和max两个值可选</li>
