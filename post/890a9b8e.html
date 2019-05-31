@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Aferica的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://http://www.aferica.wang">
+    <!--SEO-->
+
+    <meta name="keywords" content="Flutter,移动开发,CocoaPods">
+
+
+    <meta name="description" content="Flutter是谷歌的移动UI框架，可以快速在iOS和Android上构建高质量的原生用户界面。Flutter可以与现有的代码一起工作，如阿里闲鱼。在全世界，Flutter正在被越来越多的开发者...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>Flutter学习（一）：环境安装遇到问题和基本介绍 | Aferica的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="aferica">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> aferica </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://http://www.aferica.wang">Aferica的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/API/"><i class="fa "></i>API</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Flutter学习（一）：环境安装遇到问题和基本介绍">
+            
+	            Flutter学习（一）：环境安装遇到问题和基本介绍
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/Flutter/">Flutter</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/CocoaPods/">CocoaPods</a> <a class="tag-link" href="/tags/Flutter/">Flutter</a> <a class="tag-link" href="/tags/移动开发/">移动开发</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/05/30</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>Flutter是谷歌的移动UI框架，可以快速在iOS和Android上构建高质量的原生用户界面。<br>Flutter可以与现有的代码一起工作，如阿里闲鱼。<br>在全世界，Flutter正在被越来越多的开发者和组织使用，并且Flutter是完全免费、开源的。<br><img src="https://img.aferica.wang/markdown/20190530001154.png" alt="20190530001154.png"></p>
+<h1 id="基本介绍-Flutter优势"><a href="#基本介绍-Flutter优势" class="headerlink" title="基本介绍-Flutter优势"></a>基本介绍-Flutter优势</h1><h2 id="快速开发–热重载"><a href="#快速开发–热重载" class="headerlink" title="快速开发–热重载"></a>快速开发–热重载</h2><p>Flutter的热重载可帮助您快速地进行测试、构建UI、添加功能并更快地修复错误。在iOS和Android模拟器或真机上可以在亚秒内重载，并且不会丢失状态。</p>
+<h2 id="富有表现力，漂亮的用户界面"><a href="#富有表现力，漂亮的用户界面" class="headerlink" title="富有表现力，漂亮的用户界面"></a>富有表现力，漂亮的用户界面</h2><p>使用Flutter内置美丽的Material Design和Cupertino（iOS风格）widget、丰富的motion API、平滑而自然的滑动效果和平台感知，为您的用户带来全新体验。</p>
+<h2 id="原生性能"><a href="#原生性能" class="headerlink" title="原生性能"></a>原生性能</h2><p>Flutter包含了许多核心的widget，如滚动、导航、图标和字体等，这些都可以在iOS和Android上达到原生应用一样的性能。</p>
+<h1 id="对比ReactNative"><a href="#对比ReactNative" class="headerlink" title="对比ReactNative"></a>对比ReactNative</h1><p><img src="https://img.aferica.wang/markdown/20190530003141.png" alt="20190530003141.png"><br>对比ReactNative，Flutter有更好的性能。<br>详细对比参见下面文章：</p>
+<ul>
+<li><a href="https://yq.aliyun.com/articles/637499" target="_blank" rel="noopener">流言终结者- Flutter和RN谁才是更好的跨端开发方案？</a></li>
+<li><a href="https://www.jianshu.com/p/ee42c567734f" target="_blank" rel="noopener">Flutter vs React Native</a></li>
+</ul>
+<h1 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h1><p>具体环境配置可以查看<a href="https://flutter.dev/docs/get-started/install" target="_blank" rel="noopener">官网教程</a>或是<a href="https://flutterchina.club/get-started/install/" target="_blank" rel="noopener">中文网教程</a>，以及百度搜索，有很多教程。<br>本文主要介绍Mac配置IOS环境时安装CocoaPods速度过慢的问题。</p>
+<h2 id="处理CocoaPods安装过慢"><a href="#处理CocoaPods安装过慢" class="headerlink" title="处理CocoaPods安装过慢"></a>处理CocoaPods安装过慢</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod setup</span><br></pre></td></tr></table></figure>
+<p>这条命令是将Github上的开源库都托管都安装Podspec索引安装到到本地.<br>所以可以直接在GitHub上下载就可以了<br>地址：<code>https://github.com/CocoaPods/Specs</code><br>如果还是特别慢的话，可以使用这个<br>地址：<code>https://img.aferica.wang/develop/flutter/Specs-master.zip</code><br>下载后解压，更改文件夹名为<code>master</code>，复制移动到<code>~/.cocoapods/repos</code>即可<br>例如：<br><img src="https://img.aferica.wang/markdown/20190530004757.png" alt="20190530004757.png"></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：转载请注明出处
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/post/b534519.html" class="pre-post btn btn-default" title="Flutter学习（二）：常用布局控件介绍">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Flutter学习（二）：常用布局控件介绍</span>
+        </a>
+    
+    
+        <a href="/post/60c89aa3.html" class="next-post btn btn-default" title="wepy小程序引入ColorUI">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">wepy小程序引入ColorUI</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: '0a6Qjjl2gHvSqkPF7iglNNvf-gzGzoHsz',
+            appKey: 'UKINFuSGgUOwjl6Ez9silbs8',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本介绍-Flutter优势"><span class="toc-text">基本介绍-Flutter优势</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速开发–热重载"><span class="toc-text">快速开发–热重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#富有表现力，漂亮的用户界面"><span class="toc-text">富有表现力，漂亮的用户界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原生性能"><span class="toc-text">原生性能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#对比ReactNative"><span class="toc-text">对比ReactNative</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#环境配置"><span class="toc-text">环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#处理CocoaPods安装过慢"><span class="toc-text">处理CocoaPods安装过慢</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                </span> |
+                <span>
+                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                </span>
+                <!-- <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

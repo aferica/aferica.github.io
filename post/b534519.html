@@ -1,0 +1,355 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Aferica的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://http://www.aferica.wang">
+    <!--SEO-->
+
+    <meta name="keywords" content="Flutter,移动开发">
+
+
+    <meta name="description" content="在上一篇博文中，我简单的介绍了一些Flutter的知识和优势以及环境配置问题，在本篇博文中，我主要介绍一下常用到的几种Flutter常用布局控件和使用方法。
+Container本段介绍来自Flu...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>Flutter学习（二）：常用布局控件介绍 | Aferica的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="aferica">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> aferica </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://http://www.aferica.wang">Aferica的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/API/"><i class="fa "></i>API</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Flutter学习（二）：常用布局控件介绍">
+            
+	            Flutter学习（二）：常用布局控件介绍
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/Flutter/">Flutter</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/Flutter/">Flutter</a> <a class="tag-link" href="/tags/移动开发/">移动开发</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/05/31</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>在上一篇博文中，我简单的介绍了一些Flutter的知识和优势以及环境配置问题，在本篇博文中，我主要介绍一下常用到的几种Flutter常用布局控件和使用方法。<br><img src="https://img.aferica.wang/markdown/20190530001154.png" alt="20190530001154.png"></p>
+<h1 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h1><p>本段介绍来自<a href="https://www.jianshu.com/p/366b2446eaab" target="_blank" rel="noopener">Flutter 布局（一）- Container详解</a><br><code>Container</code>是Flutter最常使用的布局控件之一</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>需要设置间隔（这种情况下，如果只是单纯的间隔，也可以通过Padding来实现）；</li>
+<li>需要设置背景色；</li>
+<li>需要设置圆角或者边框的时候（ClipRRect也可以实现圆角效果）；</li>
+<li>需要对齐（Align也可以实现）；</li>
+<li>需要设置背景图片的时候（也可以使用Stack实现）  </li>
+</ul>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Container(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  <span class="keyword">this</span>.alignment,</span><br><span class="line">  <span class="keyword">this</span>.padding,</span><br><span class="line">  Color color,</span><br><span class="line">  Decoration decoration,</span><br><span class="line">  <span class="keyword">this</span>.foregroundDecoration,</span><br><span class="line">  <span class="built_in">double</span> width,</span><br><span class="line">  <span class="built_in">double</span> height,</span><br><span class="line">  BoxConstraints constraints,</span><br><span class="line">  <span class="keyword">this</span>.margin,</span><br><span class="line">  <span class="keyword">this</span>.transform,</span><br><span class="line">  <span class="keyword">this</span>.child,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="属性解析"><a href="#属性解析" class="headerlink" title="属性解析"></a>属性解析</h2><ul>
+<li>key：Container唯一标识符，用于查找更新。</li>
+<li>alignment：控制child的对齐方式，如果container或者container父节点尺寸大于child的尺寸，这个属性设置会起作用，有很多种对齐方式。</li>
+<li>padding：decoration内部的空白区域，如果有child的话，child位于padding内部。padding与margin的不同之处在于，padding是包含在content内，而margin则是外部边界，设置点击事件的话，padding区域会响应，而margin区域不会响应。</li>
+<li>color：用来设置container背景色，如果foregroundDecoration设置的话，可能会遮盖color效果。</li>
+<li>decoration：绘制在child后面的装饰，设置了decoration的话，就不能设置color属性，否则会报错，此时应该在decoration中进行颜色的设置。</li>
+<li>foregroundDecoration：绘制在child前面的装饰。</li>
+<li>width：container的宽度，设置为double.infinity可以强制在宽度上撑满，不设置，则根据child和父节点两者一起布局。</li>
+<li>height：container的高度，设置为double.infinity可以强制在高度上撑满。</li>
+<li>constraints：添加到child上额外的约束条件。</li>
+<li>margin：围绕在decoration和child之外的空白区域，不属于内容区域。</li>
+<li>transform：设置container的变换矩阵，类型为Matrix4。</li>
+<li>child：container中的内容widget。</li>
+</ul>
+<h2 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">new Container(</span><br><span class="line">  constraints: new BoxConstraints.expand(</span><br><span class="line">    height:Theme.of(context).textTheme.display1.fontSize * 1.1 + 200.0,</span><br><span class="line">  ),</span><br><span class="line">  decoration: new BoxDecoration(</span><br><span class="line">    border: new Border.all(width: 2.0, color: Colors.red),</span><br><span class="line">    color: Colors.grey,</span><br><span class="line">    borderRadius: new BorderRadius.all(new Radius.circular(20.0)),</span><br><span class="line">    image: new DecorationImage(</span><br><span class="line">      image: new NetworkImage(&apos;http://h.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0d023672312ac65c67506e77cec29e27/9f2f070828381f30dea167bbad014c086e06f06c.jpg&apos;),</span><br><span class="line">      centerSlice: new Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),</span><br><span class="line">    ),</span><br><span class="line">  ),</span><br><span class="line">  padding: const EdgeInsets.all(8.0),</span><br><span class="line">  alignment: Alignment.center,</span><br><span class="line">  child: new Text(&apos;Hello World&apos;,</span><br><span class="line">    style: Theme.of(context).textTheme.display1.copyWith(color: Colors.black)),</span><br><span class="line">  transform: new Matrix4.rotationZ(0.3),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h1 id="Row和Column"><a href="#Row和Column" class="headerlink" title="Row和Column"></a>Row和Column</h1><p><code>Row</code>、<code>Column</code>两个基本相同，只有一个是横向，一个是纵向布局的区别，所以我们以<code>Row</code>为例来介绍说明。</p>
+<h2 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>需要横向（纵向）排列，如标签展示</li>
+<li>网格布局（GridView也可以实现）  </li>
+</ul>
+<h2 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Row(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,</span><br><span class="line">  MainAxisSize mainAxisSize = MainAxisSize.max,</span><br><span class="line">  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,</span><br><span class="line">  TextDirection textDirection,</span><br><span class="line">  VerticalDirection verticalDirection = VerticalDirection.down,</span><br><span class="line">  TextBaseline textBaseline,</span><br><span class="line">  List&lt;Widget&gt; children = const &lt;Widget&gt;[],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="属性解析-1"><a href="#属性解析-1" class="headerlink" title="属性解析"></a>属性解析</h2><ul>
+<li>key：Flutter控件（Widget）唯一标识符，用于查找更新。</li>
+<li>mainAxisAlignment：子元素对齐方式，MainAxisAlignment对象，类似于css中的<code>justify-content</code>和<code>align-content</code>，<blockquote>
+<p>有六种对齐方式：<br><code>start</code>开始（左侧或顶部）对齐<br><code>end</code>开始（右侧或底部）对齐<br><code>center</code>居中对齐<br><code>spaceBetween</code>子元素之间留有空白，但第一个元素之前和最后一个元素之后不留空白，类似于css中<code>space-between</code><br><img src="https://img.aferica.wang/markdown/de76ada5cdf9305499b1b02eb32a934.jpg" alt="de76ada5cdf9305499b1b02eb32a934.jpg"><br><code>spaceAround</code>子元素之间留有空白，第一个元素之前和最后一个元素之后留一半的空白，类似于css中<code>space-around</code><br><img src="https://img.aferica.wang/markdown/d0e861bfffb9e1b051c9c08c94e35a4.jpg" alt="d0e861bfffb9e1b051c9c08c94e35a4.jpg"><br><code>spaceEvenly</code>子元素之间留有空白，第一个元素之前和最后一个元素之后留相等的空白，类似于css中<code>space-around</code><br><img src="https://img.aferica.wang/markdown/67281de4285163df268f40f822e0f3e.jpg" alt="67281de4285163df268f40f822e0f3e.jpg">  </p>
+</blockquote>
+</li>
+<li>mainAxisSize：主方向大小，有min和max两个值可选</li>
+<li>crossAxisAlignment：子元素在交叉轴方向的对齐方式</li>
+<li>verticalDirection：定义了子元素摆放顺序，默认是down，即从左到右（从上到下），可选还有up，即从右到左（从下到上）</li>
+</ul>
+<h2 id="简单示例-1"><a href="#简单示例-1" class="headerlink" title="简单示例"></a>简单示例</h2><p>上面三图中的追书人数和读者留存率行实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Row(</span><br><span class="line">  mainAxisAlignment: MainAxisAlignment.spaceEvenly,</span><br><span class="line">  mainAxisSize: MainAxisSize.max, // 默认即为max，可不写</span><br><span class="line">  children: &lt;Widget&gt;[</span><br><span class="line">    Text(&apos;追书人数：&apos;, style: TextStyle(fontSize: 12.0,height: 1.5),),</span><br><span class="line">    Text(latelyFollower, style: TextStyle(fontSize: 13.0, color: Colors.pink,height: 1.5),),</span><br><span class="line">    Text(&apos;读者留存率：&apos;, style: TextStyle(fontSize: 12.0,height: 1.5)),</span><br><span class="line">    Text(retentionRatio, style: TextStyle(fontSize: 13.0, color: Colors.pink,height: 1.5),)</span><br><span class="line">  ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h1 id="Scaffold"><a href="#Scaffold" class="headerlink" title="Scaffold"></a>Scaffold</h1><p><code>Scaffold</code>可以说的上是Flutter中基本的页面布局</p>
+<h2 id="使用场景-2"><a href="#使用场景-2" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
+<li>几乎所有页面都可以使用<h2 id="构造函数-2"><a href="#构造函数-2" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Scaffold(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  this.appBar,</span><br><span class="line">  this.body,</span><br><span class="line">  this.floatingActionButton,</span><br><span class="line">  this.floatingActionButtonLocation,</span><br><span class="line">  this.floatingActionButtonAnimator,</span><br><span class="line">  this.persistentFooterButtons,</span><br><span class="line">  this.drawer,</span><br><span class="line">  this.endDrawer,</span><br><span class="line">  this.bottomNavigationBar,</span><br><span class="line">  this.bottomSheet,</span><br><span class="line">  this.backgroundColor,</span><br><span class="line">  this.resizeToAvoidBottomPadding,</span><br><span class="line">  this.resizeToAvoidBottomInset,</span><br><span class="line">  this.primary = true,</span><br><span class="line">  this.drawerDragStartBehavior = DragStartBehavior.start,</span><br><span class="line">  this.extendBody = false,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="属性解析-2"><a href="#属性解析-2" class="headerlink" title="属性解析"></a>属性解析</h2><ul>
+<li>key：Flutter控件（Widget）唯一标识符，用于查找更新。</li>
+<li>appBar: 标题栏，详见后续介绍</li>
+<li>body：页面内容</li>
+<li>floatingActionButton：固定页面之上的悬浮按钮，诸如返回顶部、新增按钮都推荐使用</li>
+<li>floatingActionButtonLocation：顾名思义，悬浮按钮位置</li>
+<li>floatingActionButtonAnimator：</li>
+<li>persistentFooterButtons：固定在页面底部，例如微信、QQ底部的聊天框</li>
+<li>drawer：左侧抽屉</li>
+<li>endDrawer：右侧抽屉，注意：如果在标题栏AppBar中设置有<code>actions</code>，右侧添加的操作按钮会将抽屉的默认打开按钮覆盖，需要自己实现打开抽屉</li>
+<li>bottomNavigationBar：App常用底部导航栏</li>
+<li>backgroundColor：内容的背景颜色，默认使用的是 ThemeData.scaffoldBackgroundColor 的值</li>
+<li>resizeToAvoidBottomPadding：控制界面内容 body 是否重新布局来避免底部被覆盖了，比如当键盘显示的时候，重新布局避免被键盘盖住内容。默认值为 true</li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：转载请注明出处
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/post/890a9b8e.html" class="next-post btn btn-default" title="Flutter学习（一）：环境安装遇到问题和基本介绍">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Flutter学习（一）：环境安装遇到问题和基本介绍</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: '0a6Qjjl2gHvSqkPF7iglNNvf-gzGzoHsz',
+            appKey: 'UKINFuSGgUOwjl6Ez9silbs8',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Container"><span class="toc-text">Container</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用场景"><span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性解析"><span class="toc-text">属性解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单示例"><span class="toc-text">简单示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Row和Column"><span class="toc-text">Row和Column</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用场景-1"><span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数-1"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性解析-1"><span class="toc-text">属性解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简单示例-1"><span class="toc-text">简单示例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Scaffold"><span class="toc-text">Scaffold</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用场景-2"><span class="toc-text">使用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数-2"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性解析-2"><span class="toc-text">属性解析</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                </span> |
+                <span>
+                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                </span>
+                <!-- <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
