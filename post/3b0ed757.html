@@ -1,0 +1,301 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Aferica的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://http://www.aferica.wang">
+    <!--SEO-->
+
+    <meta name="keywords" content="Flutter,移动开发,网络请求,Http封装">
+
+
+    <meta name="description" content="当我们使用或者制作一个APP时，数据请求验证无疑是最为关键的部分。Flutter自身带有Http模块以用于数据请求，但是过于简单，通常不能满足我们的需求。
+简介dio是一个强大的Dart Htt...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>Flutter学习（三）：网络请求Dio模块使用 | Aferica的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="aferica">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> aferica </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://http://www.aferica.wang">Aferica的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/API/"><i class="fa "></i>API</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Flutter学习（三）：网络请求Dio模块使用">
+            
+	            Flutter学习（三）：网络请求Dio模块使用
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/Flutter/">Flutter</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/Flutter/">Flutter</a> <a class="tag-link" href="/tags/Http封装/">Http封装</a> <a class="tag-link" href="/tags/移动开发/">移动开发</a> <a class="tag-link" href="/tags/网络请求/">网络请求</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/06/03</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>当我们使用或者制作一个APP时，数据请求验证无疑是最为关键的部分。<br>Flutter自身带有Http模块以用于数据请求，但是过于简单，通常不能满足我们的需求。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>dio是一个强大的Dart Http请求库，支持Restful API、FormData、拦截器、请求取消、Cookie管理、文件上传/下载、超时、自定义适配器等…<br><a href="https://github.com/flutterchina/dio" target="_blank" rel="noopener">官方Github地址</a><br><a href="https://github.com/flutterchina/dio/blob/master/README-ZH.md" target="_blank" rel="noopener">中文文档</a><br>文档比较详细，我就不重复了，下面我主要介绍基本封装</p>
+<h1 id="使用封装"><a href="#使用封装" class="headerlink" title="使用封装"></a>使用封装</h1><p>Get请求是使用最为频繁的请求方式，我们以Get为例<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'dart:convert'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'dart:async'</span>;</span><br><span class="line"><span class="comment">// 使用fluttertoast来处理一些报错的toast提示信息</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:fluttertoast/fluttertoast.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:dio/dio.dart'</span>;</span><br><span class="line"><span class="comment">// 使用shared_preferences来保存登录状态</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:shared_preferences/shared_preferences.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line"><span class="keyword">final</span> Dio dio = <span class="keyword">new</span> Dio();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Request</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> Future&lt;<span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="keyword">dynamic</span>&gt;&gt; <span class="keyword">get</span>(<span class="built_in">String</span> url, &#123; <span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="built_in">String</span>&gt; params &#125;) <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(url);</span><br><span class="line">    <span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="keyword">dynamic</span>&gt; result = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    <span class="comment">// shared_preferences初始化</span></span><br><span class="line">    SharedPreferences prefs = <span class="keyword">await</span> SharedPreferences.getInstance();</span><br><span class="line">    <span class="comment">// 获取本地保存的token（用于身份验证）</span></span><br><span class="line">    <span class="comment">// 如果不存在就返回''</span></span><br><span class="line">    <span class="built_in">String</span> token = prefs.getString(<span class="string">'token'</span>) ?? <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">if</span>(token == <span class="string">''</span>) &#123;</span><br><span class="line">      <span class="comment">// 未登录 返回</span></span><br><span class="line">      Fluttertoast.showToast(msg: <span class="string">'请登录后使用'</span>, backgroundColor: Colors.black54, fontSize: <span class="number">14.0</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        Response res = <span class="keyword">await</span> dio.<span class="keyword">get</span>(</span><br><span class="line">            url,</span><br><span class="line">            queryParameters: params,</span><br><span class="line">            options: <span class="keyword">new</span> Options(</span><br><span class="line">                <span class="comment">// 返回字符串</span></span><br><span class="line">                <span class="comment">// 由于Dart不能像JS一样直接使用JSON，需要转换为Map对象</span></span><br><span class="line">                <span class="comment">// 所以对于返回值为JSON格式数据的接口推荐返回String</span></span><br><span class="line">                <span class="comment">// 以便于接下来使用`dart:convert`将String转为Map</span></span><br><span class="line">                responseType: ResponseType.plain,</span><br><span class="line">                <span class="comment">// JWT接口验证 吐过不需要可省略</span></span><br><span class="line">                headers: &#123; <span class="string">'Authorization'</span>: <span class="string">'Bearer '</span> + token &#125;</span><br><span class="line">            )</span><br><span class="line">        );</span><br><span class="line"></span><br><span class="line">        <span class="built_in">String</span> tempRes = res.toString();</span><br><span class="line">        <span class="comment">// 如果返回数据是JSON数据</span></span><br><span class="line">        <span class="comment">// 例如`[&#123;"":""&#125;,&#123;"":""&#125;,&#123;"":""&#125;]`</span></span><br><span class="line">        <span class="comment">// 需要使用`&#123;&#125;`处理后才可以转为Map</span></span><br><span class="line">        <span class="keyword">if</span>(tempRes[<span class="number">0</span>] == <span class="string">'['</span>) &#123;</span><br><span class="line">          tempRes = <span class="string">'&#123;"reslut":'</span> + tempRes + <span class="string">'&#125;'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        result = json.decode(tempRes.toString());</span><br><span class="line">      &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="comment">// 网络异常统一处理</span></span><br><span class="line">        result = <span class="keyword">null</span>;</span><br><span class="line">        Fluttertoast.showToast(msg: <span class="string">'网络请求错误，请重试'</span>, backgroundColor: Colors.black54, fontSize: <span class="number">14.0</span>);</span><br><span class="line">      &#125;</span><br><span class="line"><span class="comment">//    如果接口数据格式相同，如使用ok字段返回请求是否成功</span></span><br><span class="line"><span class="comment">//    可添加  数据统一处理 </span></span><br><span class="line"><span class="comment">//      if (!result['ok']) &#123;</span></span><br><span class="line"><span class="comment">//        Fluttertoast.showToast(msg: result['msg'], backgroundColor: Colors.black54, fontSize: 14.0);</span></span><br><span class="line"><span class="comment">//        result = null;</span></span><br><span class="line"><span class="comment">//      &#125;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：转载请注明出处
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/post/b534519.html" class="next-post btn btn-default" title="Flutter学习（二）：常用布局控件介绍">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Flutter学习（二）：常用布局控件介绍</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: '0a6Qjjl2gHvSqkPF7iglNNvf-gzGzoHsz',
+            appKey: 'UKINFuSGgUOwjl6Ez9silbs8',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用封装"><span class="toc-text">使用封装</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                </span> |
+                <span>
+                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                </span>
+                <!-- <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
