@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Aferica的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://http://www.aferica.site">
+    <!--SEO-->
+
+    <meta name="keywords" content="工具,Vue,VS Code">
+
+
+    <meta name="description" content="VS Code拥有很多特别适合和方便的功能，自定义文件模板就是其中之一，本文中主要记录Vue的模板
+创建模板步骤
+点击VS Code左下角设置按钮，选择用户代码片段
+选择新建全局代码片段，输入名...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>VsCode配置Vue模板 | Aferica的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="aferica">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> aferica </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://http://www.aferica.site">Aferica的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/API/"><i class="fa "></i>API</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="VsCode配置Vue模板">
+            
+	            VsCode配置Vue模板
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/前端/">前端</a> <a class="category-link" href="/categories/前端/Vue/">Vue</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/VS-Code/">VS Code</a> <a class="tag-link" href="/tags/Vue/">Vue</a> <a class="tag-link" href="/tags/工具/">工具</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/06/20</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>VS Code拥有很多特别适合和方便的功能，自定义文件模板就是其中之一，本文中主要记录Vue的模板</p>
+<h1 id="创建模板步骤"><a href="#创建模板步骤" class="headerlink" title="创建模板步骤"></a>创建模板步骤</h1><ul>
+<li>点击VS Code左下角设置按钮，选择<code>用户代码片段</code><br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190620115042.png" alt="20190620115042.png"></li>
+<li>选择<code>新建全局代码片段</code>，输入名称，例如<code>vue</code><br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190620115230.png" alt="20190620115230.png"></li>
+<li>编辑文件即可  </li>
+</ul>
+<h1 id="Vue页面代码"><a href="#Vue页面代码" class="headerlink" title="Vue页面代码"></a>Vue页面代码</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"Print to console"</span>: &#123;</span><br><span class="line">    <span class="attr">"prefix"</span>: <span class="string">"vue"</span>,</span><br><span class="line">    <span class="attr">"body"</span>: [</span><br><span class="line">      <span class="string">"&lt;template&gt;"</span>,</span><br><span class="line">      <span class="string">"  &lt;div id=\"page\"&gt;&lt;/div&gt;"</span>,</span><br><span class="line">      <span class="string">"&lt;/template&gt;"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"&lt;script&gt;"</span>,</span><br><span class="line">      <span class="string">"export default &#123;"</span>,</span><br><span class="line">      <span class="string">"  name: 'page',"</span>,</span><br><span class="line">      <span class="string">"  data () &#123;"</span>,</span><br><span class="line">      <span class="string">"    return &#123;"</span>,</span><br><span class="line">      <span class="string">"    &#125;"</span>,</span><br><span class="line">      <span class="string">"  &#125;,"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"  components: &#123;&#125;,"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"  computed: &#123;&#125;,"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"  mounted () &#123;&#125;,"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"  methods: &#123;&#125;"</span>,</span><br><span class="line">      <span class="string">"&#125;"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"&lt;/script&gt;"</span>,</span><br><span class="line">      <span class="string">"&lt;style scoped&gt;"</span>,</span><br><span class="line">      <span class="string">"&lt;/style&gt;"</span>,</span><br><span class="line">      <span class="string">""</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"description"</span>: <span class="string">"vue模板"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Vue组件代码"><a href="#Vue组件代码" class="headerlink" title="Vue组件代码"></a>Vue组件代码</h1><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"Print to console"</span>: &#123;</span><br><span class="line">    <span class="attr">"prefix"</span>: <span class="string">"vue-component"</span>,</span><br><span class="line">    <span class="attr">"body"</span>: [</span><br><span class="line">      <span class="string">"&lt;template&gt;"</span>,</span><br><span class="line">      <span class="string">"  &lt;div id=\"component\"&gt;&lt;/div&gt;"</span>,</span><br><span class="line">      <span class="string">"&lt;/template&gt;"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"&lt;script&gt;"</span>,</span><br><span class="line">      <span class="string">"export default &#123;"</span>,</span><br><span class="line">      <span class="string">"  name: 'component',"</span>,</span><br><span class="line">      <span class="string">"  data () &#123;"</span>,</span><br><span class="line">      <span class="string">"    return &#123;"</span>,</span><br><span class="line">      <span class="string">"    &#125;"</span>,</span><br><span class="line">      <span class="string">"  &#125;,"</span>,</span><br><span class="line">      <span class="string">"  props: &#123;"</span>,</span><br><span class="line">      <span class="string">"    value: &#123;"</span>,</span><br><span class="line">      <span class="string">"      type: Object,"</span>,</span><br><span class="line">      <span class="string">"      default () &#123;"</span>,</span><br><span class="line">      <span class="string">"        return &#123;&#125;"</span>,</span><br><span class="line">      <span class="string">"      &#125;"</span>,</span><br><span class="line">      <span class="string">"    &#125;"</span>,</span><br><span class="line">      <span class="string">"  &#125;,"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"  computed: &#123;&#125;,"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"  methods: &#123;&#125;"</span>,</span><br><span class="line">      <span class="string">"&#125;"</span>,</span><br><span class="line">      <span class="string">""</span>,</span><br><span class="line">      <span class="string">"&lt;/script&gt;"</span>,</span><br><span class="line">      <span class="string">"&lt;style scoped&gt;"</span>,</span><br><span class="line">      <span class="string">"&lt;/style&gt;"</span>,</span><br><span class="line">      <span class="string">""</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"description"</span>: <span class="string">"vue组件模板"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：转载请注明出处
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/post/9a314a5.html" class="next-post btn btn-default" title="Ubuntu使用遇到问题（一）">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Ubuntu使用遇到问题（一）</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: '0a6Qjjl2gHvSqkPF7iglNNvf-gzGzoHsz',
+            appKey: 'UKINFuSGgUOwjl6Ez9silbs8',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#创建模板步骤"><span class="toc-text">创建模板步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue页面代码"><span class="toc-text">Vue页面代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue组件代码"><span class="toc-text">Vue组件代码</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                </span> |
+                <span>
+                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                </span>
+                <!-- <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
