@@ -1180,11 +1180,11 @@ pre {
 }
 .reward .reward-wrap .reward-box {
   position: absolute;
-  top: -220px;
+  top: -370px;
   left: 50%;
   display: none;
   width: 350px;
-  height: 200px;
+  height: 350px;
   margin-left: -175px;
   padding: 15px;
   border: 1px solid #e6e6e6;
@@ -1202,7 +1202,7 @@ pre {
   display: inline-block;
   float: left;
   width: 150px;
-  height: 150px;
+  height: 300px;
   margin: 0 auto;
   border: 0;
 }

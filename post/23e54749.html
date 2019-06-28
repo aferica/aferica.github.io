@@ -188,6 +188,22 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="params">app</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> mongoose = app.mongoose</span><br><span class="line">  <span class="keyword">const</span> BookSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">    title: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">default</span>: <span class="string">''</span> &#125;,</span><br><span class="line">    cover: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">default</span>: <span class="string">''</span> &#125;,</span><br><span class="line">    type: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">default</span>: <span class="string">''</span> &#125;,</span><br><span class="line">    size: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">default</span>: <span class="string">''</span> &#125;,</span><br><span class="line">    short_intro: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">default</span>: <span class="string">''</span>&#125;,</span><br><span class="line">    uploader: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">default</span>: <span class="string">''</span>&#125;,</span><br><span class="line">    good: &#123; <span class="attr">type</span>: <span class="built_in">Number</span>, <span class="attr">default</span>: <span class="number">0</span> &#125;,</span><br><span class="line">    bad: &#123; <span class="attr">type</span>: <span class="built_in">Number</span>, <span class="attr">default</span>: <span class="number">0</span> &#125;,</span><br><span class="line">    page_url: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">default</span>: <span class="string">''</span>&#125;,</span><br><span class="line">    last_update: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">default</span>: <span class="string">''</span> &#125;,</span><br><span class="line">    create_time: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">default</span>: <span class="string">''</span> &#125;</span><br><span class="line">  &#125;, &#123;<span class="attr">collection</span>: <span class="string">'book'</span>&#125;)</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 注意：此处&#123;collection: 'book'&#125;为数据库表名称，如果不自定义表名，会默认为model名称复数形式：books </span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="keyword">return</span> mongoose.model(<span class="string">'Book'</span>, BookSchema)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     
+        <div class="reward" ontouchstart>
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="https://aferica.oss-cn-shenzhen.aliyuncs.com/me/mm_facetoface_collect_qrcode_1552895908405.png"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">你的赞赏是对我最大的鼓励</p>
+</div>
+
+
+    
     <div class="post-footer">
         <div>
             
