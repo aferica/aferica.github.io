@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Aferica的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://http://www.aferica.site">
+    <!--SEO-->
+
+    <meta name="keywords" content="Flutter,移动开发,图片,cached_network_image">
+
+
+    <meta name="description" content="图片是一个APP中必不可少的部分，缺少图片的APP会显得格外的单调乏味。但是同样的，图片也是APP最占据资源和影响体验的组件之一，加载缓慢、重复加载、加载失败、加载完成后导致页面布局发生变化同样...">
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+
+    <!--Title-->
+
+
+<title>Flutter学习（四）：图片组件cached_network_image介绍 | Aferica的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="aferica">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> aferica </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://http://www.aferica.site">Aferica的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端/"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端/"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/API/"><i class="fa "></i>API</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Flutter学习（四）：图片组件cached_network_image介绍">
+            
+	            Flutter学习（四）：图片组件cached_network_image介绍
+            
+        </h1>
+        <div class="post-meta">
+    
+        <span class="categories-meta fa-wrap">
+            <i class="fa fa-folder-open-o"></i>
+            <a class="category-link" href="/categories/Flutter/">Flutter</a>
+        </span>
+    
+
+    
+        <span class="fa-wrap">
+            <i class="fa fa-tags"></i>
+            <span class="tags-meta">
+                
+                    <a class="tag-link" href="/tags/Flutter/">Flutter</a> <a class="tag-link" href="/tags/cached-network-image/">cached_network_image</a> <a class="tag-link" href="/tags/图片/">图片</a> <a class="tag-link" href="/tags/移动开发/">移动开发</a>
+                
+            </span>
+        </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/06/28</span>
+        </span>
+        
+    
+</div>
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>图片是一个APP中必不可少的部分，缺少图片的APP会显得格外的单调乏味。<br>但是同样的，图片也是APP最占据资源和影响体验的组件之一，加载缓慢、重复加载、加载失败、加载完成后导致页面布局发生变化同样会导致用户体验极差。<br>Flutter虽然自带了Image，但是功能十分简单，不足以满足日常的使用，于是我找到了<code>cached_network_image</code>来满足需求。</p>
+<h1 id="官网"><a href="#官网" class="headerlink" title="官网"></a>官网</h1><p><a href="https://pub.flutter-io.cn/packages/cached_network_image" target="_blank" rel="noopener">Pub.dev地址：https://pub.flutter-io.cn/packages/cached_network_image</a><br><a href="https://github.com/renefloor/flutter_cached_network_image" target="_blank" rel="noopener">GitHub地址：https://github.com/renefloor/flutter_cached_network_image</a></p>
+<h1 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h1><ul>
+<li>使用简单</li>
+<li>支持默认图片/加载图片、动图设置（placeholder）</li>
+<li>支持淡入淡出动画显示</li>
+<li>支持错误图片设置（errorWidget）</li>
+<li>支持缓存，减少重复请求</li>
+</ul>
+<h1 id="API文档"><a href="#API文档" class="headerlink" title="API文档"></a>API文档</h1><p><a href="https://pub.flutter-io.cn/documentation/cached_network_image/latest/cached_network_image/cached_network_image-library.html" target="_blank" rel="noopener">英文文档：https://pub.flutter-io.cn/documentation/cached_network_image/latest/cached_network_image/cached_network_image-library.html</a></p>
+<h1 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">CachedNetworkImage(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  <span class="meta">@required</span> <span class="keyword">this</span>.imageUrl,</span><br><span class="line">  <span class="keyword">this</span>.imageBuilder,</span><br><span class="line">  <span class="keyword">this</span>.placeholder,</span><br><span class="line">  <span class="keyword">this</span>.errorWidget,</span><br><span class="line">  <span class="keyword">this</span>.fadeOutDuration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds: <span class="number">300</span>),</span><br><span class="line">  <span class="keyword">this</span>.fadeOutCurve: Curves.easeOut,</span><br><span class="line">  <span class="keyword">this</span>.fadeInDuration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds: <span class="number">700</span>),</span><br><span class="line">  <span class="keyword">this</span>.fadeInCurve: Curves.easeIn,</span><br><span class="line">  <span class="keyword">this</span>.width,</span><br><span class="line">  <span class="keyword">this</span>.height,</span><br><span class="line">  <span class="keyword">this</span>.fit,</span><br><span class="line">  <span class="keyword">this</span>.alignment: Alignment.center,</span><br><span class="line">  <span class="keyword">this</span>.repeat: ImageRepeat.noRepeat,</span><br><span class="line">  <span class="keyword">this</span>.matchTextDirection: <span class="keyword">false</span>,</span><br><span class="line">  <span class="keyword">this</span>.httpHeaders,</span><br><span class="line">  <span class="keyword">this</span>.cacheManager,</span><br><span class="line">  <span class="keyword">this</span>.useOldImageOnUrlChange: <span class="keyword">false</span>,</span><br><span class="line">  <span class="keyword">this</span>.color,</span><br><span class="line">  <span class="keyword">this</span>.colorBlendMode,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h1 id="属性解析"><a href="#属性解析" class="headerlink" title="属性解析"></a>属性解析</h1><ul>
+<li>imageUrl: 图片地址，必须</li>
+<li>imageBuilder: 可选构建器，自定义图像的显示。</li>
+<li>placeholder: 初始控件，在加载图片时显示，如加载动画，常用</li>
+<li>errorWidget: 图片加载失败显示</li>
+<li>fadeOutDuration/fadeOutCurve: 淡出动画效果设置</li>
+<li>fadeInDuration/fadeInCurve: 淡入动画效果设置</li>
+<li>width: 图片宽度</li>
+<li>height: 图片高度度</li>
+<li>fit: 填充方式</li>
+<li>repeat: 是否及如何重复背景图像，类似于CSS中的<code>background-repeat</code></li>
+<li>alignment: 对齐方式</li>
+<li>httpHeaders: 图片请求Header设置，可用于反防盗链使用</li>
+</ul>
+<h1 id="使用Demo"><a href="#使用Demo" class="headerlink" title="使用Demo"></a>使用Demo</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> CachedNetworkImage(</span><br><span class="line">  <span class="comment">// 设置图片宽度为屏幕宽度</span></span><br><span class="line">  width: MediaQuery.of(context).size.width,</span><br><span class="line">  <span class="comment">// 设置根据宽度计算高度</span></span><br><span class="line">  height: MediaQuery.of(context).size.width / <span class="number">40</span> * <span class="number">27</span>,</span><br><span class="line">  <span class="comment">// 图片地址</span></span><br><span class="line">  imageUrl: <span class="string">'xxx'</span>,</span><br><span class="line">  <span class="comment">// 填充方式为cover</span></span><br><span class="line">  fit: BoxFit.cover,</span><br><span class="line">  <span class="comment">// 加载样式为IOS的加载，居中显示</span></span><br><span class="line">  placeholder: (context, url) =&gt; <span class="keyword">new</span> Container(</span><br><span class="line">    child: Center(</span><br><span class="line">      child: <span class="keyword">new</span> CupertinoActivityIndicator(),</span><br><span class="line">    ),</span><br><span class="line">  ),</span><br><span class="line">  <span class="comment">// 加载失败后显示自定义的404图片</span></span><br><span class="line">  errorWidget: (context, url, error) =&gt; <span class="keyword">new</span> Container(</span><br><span class="line">    child: <span class="keyword">new</span> Image.asset(<span class="string">'static/images/404w.png'</span>, height: <span class="number">100</span>, width: <span class="number">100</span>,),</span><br><span class="line">  ),</span><br><span class="line">),</span><br></pre></td></tr></table></figure>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：转载请注明出处
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/post/3c21d7d9.html" class="next-post btn btn-default" title="前端开发素材网站推荐">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">前端开发素材网站推荐</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+	
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: '0a6Qjjl2gHvSqkPF7iglNNvf-gzGzoHsz',
+            appKey: 'UKINFuSGgUOwjl6Ez9silbs8',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#官网"><span class="toc-text">官网</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#优势"><span class="toc-text">优势</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#API文档"><span class="toc-text">API文档</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#构造函数"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#属性解析"><span class="toc-text">属性解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用Demo"><span class="toc-text">使用Demo</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2019
+                </span> |
+                <span>
+                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                </span>
+                <!-- <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
