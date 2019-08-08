@@ -195,7 +195,7 @@
 <li>选择时长（很显然，当然选择15年了）</li>
 <li>点击Next按钮生成</li>
 <li>生成弹框中，将<code>Origin Certificate</code>内容保存为<code>xxx.pem</code>文件，将<code>Private key</code>内容保存为<code>xxx.key</code>文件（如果没有<code>Private key</code>，重新生成即可）</li>
-<li>配置Nginx<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	listen 443;</span><br><span class="line">	server_name xxx.xxx;  // 域名或者子域名</span><br><span class="line"></span><br><span class="line">	ssl on;</span><br><span class="line">	ssl_certificate xxx.pem; // 上保存的.pem文件的全路径</span><br><span class="line">	ssl_certificate_key xxx.key; // 上保存的.key文件的全路径</span><br><span class="line">	ssl_session_timeout 5m;</span><br><span class="line">	ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置</span><br><span class="line">	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line"><span class="meta">	#</span>按照这个套件配置</span><br><span class="line">	ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">	client_max_body_size 20m;</span><br><span class="line"></span><br><span class="line">	// 网页路径配置</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>配置Nginx<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">	listen 443;</span><br><span class="line">	server_name xxx.xxx;  // 域名或者子域名</span><br><span class="line"></span><br><span class="line">	ssl on;</span><br><span class="line">	ssl_certificate xxx.pem; // 上保存的.pem文件的全路径</span><br><span class="line">	ssl_certificate_key xxx.key; // 上保存的.key文件的全路径</span><br><span class="line">	ssl_session_timeout 5m;</span><br><span class="line">	ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置</span><br><span class="line">	ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line"><span class="meta">	#</span><span class="bash">按照这个套件配置</span></span><br><span class="line">	ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">	client_max_body_size 20m;</span><br><span class="line"></span><br><span class="line">	// 网页路径配置</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h4 id="3-3-3-Always-Use-HTTPS"><a href="#3-3-3-Always-Use-HTTPS" class="headerlink" title="3.3.3 Always Use HTTPS"></a>3.3.3 Always Use HTTPS</h4><p>自动将Http请求重定向为Https，默认关闭</p>
@@ -234,6 +234,11 @@
 </article>
 
 <div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/post/8aa1c451.html" class="pre-post btn btn-default" title="Flutter学习（六）：视频播放">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Flutter学习（六）：视频播放</span>
+        </a>
     
     
         <a href="/post/eee036c1.html" class="next-post btn btn-default" title="好用软件推荐-Windows篇">
