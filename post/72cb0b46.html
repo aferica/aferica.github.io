@@ -16,11 +16,11 @@
     <link rel="dns-prefetch" href="http://http://www.aferica.site">
     <!--SEO-->
 
-    <meta name="keywords" content="Ubuntu,Rudy,bundle">
+    <meta name="keywords" content="Ubuntu,Https,Nginx,防火墙">
 
 
-    <meta name="description" content="我在阿里云通过学生优惠（之前是需要学生认证才行，比较麻烦，后来应该是去年，修改为只要24岁以下都认为是学生），购买了一条云服务器，经常在上面测试使用，在使用中，遇到了一些问题，记录保存。
-Rud...">
+    <meta name="description" content="起因前几天因为自己在瞎搞项目，导致自己的服务器又装了一个apache，然后就悲剧了，自己的服务彻底崩了
+过程刚开始，我卸载了apache和Nginx，重新安装了自己的Nginx，重新配置后仍然无...">
 
 
 
@@ -32,7 +32,7 @@ Rud...">
     <!--Title-->
 
 
-<title>Ubuntu使用遇到问题（一） | Aferica的个人博客</title>
+<title>记一次Nginx无法使用https的问题（开启Ubuntu防火墙） | Aferica的个人博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
@@ -139,9 +139,9 @@ Rud...">
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Ubuntu使用遇到问题（一）">
+        <h1 id="记一次Nginx无法使用https的问题（开启Ubuntu防火墙）">
             
-	            Ubuntu使用遇到问题（一）
+	            记一次Nginx无法使用https的问题（开启Ubuntu防火墙）
             
         </h1>
         <div class="post-meta">
@@ -157,7 +157,7 @@ Rud...">
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/Rudy/">Rudy</a> <a class="tag-link" href="/tags/Ubuntu/">Ubuntu</a> <a class="tag-link" href="/tags/bundle/">bundle</a>
+                    <a class="tag-link" href="/tags/Https/">Https</a> <a class="tag-link" href="/tags/Nginx/">Nginx</a> <a class="tag-link" href="/tags/Ubuntu/">Ubuntu</a> <a class="tag-link" href="/tags/防火墙/">防火墙</a>
                 
             </span>
         </span>
@@ -167,7 +167,7 @@ Rud...">
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2019/06/11</span>
+            <span class="date-meta">2019/10/17</span>
         </span>
         
     
@@ -177,13 +177,18 @@ Rud...">
     </div>
     
     <div class="post-body post-content">
-        <p><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190611115633.png" alt="20190611115633.png"><br>我在阿里云通过学生优惠（之前是需要学生认证才行，比较麻烦，后来应该是去年，修改为只要24岁以下都认为是学生），购买了一条云服务器，经常在上面测试使用，在使用中，遇到了一些问题，记录保存。</p>
-<h1 id="Rudy使用"><a href="#Rudy使用" class="headerlink" title="Rudy使用"></a>Rudy使用</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>可以直接安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install rudy</span><br></pre></td></tr></table></figure></p>
-<p>默认安装版本经常不是最新版本</p>
-<h2 id="安装高版本"><a href="#安装高版本" class="headerlink" title="安装高版本"></a>安装高版本</h2><p>添加PPA源<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:brightbox/ruby-ng</span><br><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
-<p>安装新版本<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 如果有旧版本需要先删除</span><br><span class="line">sudo apt-get purge --auto-remove ruby</span><br><span class="line">sudo apt-get install ruby2.6 ruby2.6-dev</span><br></pre></td></tr></table></figure></p>
-<h1 id="执行命令提示文件不存在"><a href="#执行命令提示文件不存在" class="headerlink" title="执行命令提示文件不存在"></a>执行命令提示文件不存在</h1><p>出现该问题，大部分是因为执行命令文件没有在<code>/usr/bin</code>中<br>解决方法：<br>创建软连接<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/bin/bundle /usr/bin/bundle</span><br></pre></td></tr></table></figure></p>
-
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>前几天因为自己在瞎搞项目，导致自己的服务器又装了一个<code>apache</code>，然后就悲剧了，自己的服务彻底崩了</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><p>刚开始，我卸载了<code>apache</code>和<code>Nginx</code>，重新安装了自己的<code>Nginx</code>，重新配置后仍然无效，只能看到<code>Welcome to nginx!</code>（我也是去查看这个来检查自己的<code>Nginx</code>是否启动的时候才发现原来自己多装了一个<code>apache</code>），然后，我就一直以为是自己的<code>Nginx</code>有问题，不断重启测试，就是不行，然后我就打开我唯一的一个<code>http</code>访问的地址，发现可以访问，于是我又去查询为什么https无法访问，很多都是说是因为防火墙的问题，我一直没在意，因为之前好好的可以访问的，以为443端口放开了，又折腾了好久，实在是没法了，我去查了一下防火墙，卧槽？怎么没放开，最终放开后解决了问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>1.先打开ip，查看服务是否启动</li>
+<li>2.查看使用<code>http</code>访问的地址，验证<code>Nginx</code>配置是否生效</li>
+<li>3.查看防火墙</li>
+</ul>
+<h1 id="Ubuntu防火墙使用命令"><a href="#Ubuntu防火墙使用命令" class="headerlink" title="Ubuntu防火墙使用命令"></a>Ubuntu防火墙使用命令</h1><h2 id="查看开放端口"><a href="#查看开放端口" class="headerlink" title="查看开放端口"></a>查看开放端口</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw status</span><br></pre></td></tr></table></figure>
+<p><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20191017173821.png" alt="20191017173821.png"></p>
+<h2 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 443</span><br></pre></td></tr></table></figure>
+<p><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20191017173939.png" alt="20191017173939.png"></p>
+<h2 id="重启防火墙"><a href="#重启防火墙" class="headerlink" title="重启防火墙"></a>重启防火墙</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw reload</span><br></pre></td></tr></table></figure>
     </div>
     
         <div class="reward" ontouchstart>
@@ -216,15 +221,10 @@ Rud...">
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/post/2a234aa1.html" class="pre-post btn btn-default" title="VsCode配置Vue模板">
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">VsCode配置Vue模板</span>
-        </a>
     
-    
-        <a href="/post/d4ae078f.html" class="next-post btn btn-default" title="写文章博客必备利器————PicGo">
+        <a href="/post/27f70779.html" class="next-post btn btn-default" title="mongoDB中聚合aggregate使用（二）">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">写文章博客必备利器————PicGo</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">mongoDB中聚合aggregate使用（二）</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -267,7 +267,7 @@ Rud...">
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Rudy使用"><span class="toc-text">Rudy使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装高版本"><span class="toc-text">安装高版本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#执行命令提示文件不存在"><span class="toc-text">执行命令提示文件不存在</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#起因"><span class="toc-text">起因</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过程"><span class="toc-text">过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu防火墙使用命令"><span class="toc-text">Ubuntu防火墙使用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看开放端口"><span class="toc-text">查看开放端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开放端口"><span class="toc-text">开放端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启防火墙"><span class="toc-text">重启防火墙</span></a></li></ol></li></ol>
         
     </div>
 </aside>
