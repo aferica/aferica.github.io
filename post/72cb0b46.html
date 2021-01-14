@@ -16,11 +16,11 @@
     <link rel="dns-prefetch" href="http://http://www.aferica.site">
     <!--SEO-->
 
-    <meta name="keywords" content="Chrome,工具" />
+    <meta name="keywords" content="Ubuntu,Https,Nginx,防火墙" />
 
 
-    <meta name="description" content="Chrome浏览器是目前使用人数最多的浏览器，由于其优秀的功能，丰富的插件，对开发者友好的特点，几乎是程序开发必备。下面推荐几个个人觉得好用的，甚至是必须的插件。  
-Restlet Clien..." />
+    <meta name="description" content="起因前几天因为自己在瞎搞项目，导致自己的服务器又装了一个apache，然后就悲剧了，自己的服务彻底崩了
+过程刚开始，我卸载了apache和Nginx，重新安装了自己的Nginx，重新配置后仍然无..." />
 
 
 
@@ -32,7 +32,7 @@ Restlet Clien..." />
     <!--Title-->
 
 
-<title>Chrome常用插件推荐 | Aferica的个人博客</title>
+<title>记一次Nginx无法使用https的问题（开启Ubuntu防火墙） | Aferica的个人博客</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Aferica的个人博客" type="application/atom+xml">
@@ -141,16 +141,16 @@ Restlet Clien..." />
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Chrome常用插件推荐">
+        <h1 id="记一次Nginx无法使用https的问题（开启Ubuntu防火墙）">
             
-	            Chrome常用插件推荐
+	            记一次Nginx无法使用https的问题（开启Ubuntu防火墙）
             
         </h1>
         <div class="post-meta">
     
         <span class="categories-meta fa-wrap">
             <i class="fa fa-folder-open-o"></i>
-            <a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
+            <a class="category-link" href="/categories/Ubuntu/">Ubuntu</a>
         </span>
     
 
@@ -159,7 +159,7 @@ Restlet Clien..." />
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/Chrome/" rel="tag">Chrome</a> <a class="tag-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a>
+                    <a class="tag-link" href="/tags/Https/" rel="tag">Https</a> <a class="tag-link" href="/tags/Nginx/" rel="tag">Nginx</a> <a class="tag-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a> <a class="tag-link" href="/tags/%E9%98%B2%E7%81%AB%E5%A2%99/" rel="tag">防火墙</a>
                 
             </span>
         </span>
@@ -169,7 +169,7 @@ Restlet Clien..." />
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2019/04/28</span>
+            <span class="date-meta">2019/10/17</span>
         </span>
         
     
@@ -177,35 +177,24 @@ Restlet Clien..." />
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>626</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>454</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
     
     <div class="post-body post-content">
-        <p>Chrome浏览器是目前使用人数最多的浏览器，由于其优秀的功能，丰富的插件，对开发者友好的特点，几乎是程序开发必备。<br>下面推荐几个个人觉得好用的，甚至是必须的插件。  </p>
-<h2 id="Restlet-Client（API测试工具）"><a href="#Restlet-Client（API测试工具）" class="headerlink" title="Restlet Client（API测试工具）"></a>Restlet Client（API测试工具）</h2><p>提到API测试工具，很多人第一时间想到的应该都是Postman这款工具，但是个人感觉太大了一些，于是我找到了这款工具：<br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190428142101.png" alt="20190428142101.png"><br>从上图可以看出，该工具还是比较受欢迎的  </p>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>轻量级，就如同网页一般，随用随开，可离线</li>
-<li>界面美观，使用方便</li>
-<li>免费款极客满足日常所有需要</li>
-<li>无广告</li>
-<li>功能齐全  </li>
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>前几天因为自己在瞎搞项目，导致自己的服务器又装了一个<code>apache</code>，然后就悲剧了，自己的服务彻底崩了</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><p>刚开始，我卸载了<code>apache</code>和<code>Nginx</code>，重新安装了自己的<code>Nginx</code>，重新配置后仍然无效，只能看到<code>Welcome to nginx!</code>（我也是去查看这个来检查自己的<code>Nginx</code>是否启动的时候才发现原来自己多装了一个<code>apache</code>），然后，我就一直以为是自己的<code>Nginx</code>有问题，不断重启测试，就是不行，然后我就打开我唯一的一个<code>http</code>访问的地址，发现可以访问，于是我又去查询为什么https无法访问，很多都是说是因为防火墙的问题，我一直没在意，因为之前好好的可以访问的，以为443端口放开了，又折腾了好久，实在是没法了，我去查了一下防火墙，卧槽？怎么没放开，最终放开后解决了问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><ul>
+<li>1.先打开ip，查看服务是否启动</li>
+<li>2.查看使用<code>http</code>访问的地址，验证<code>Nginx</code>配置是否生效</li>
+<li>3.查看防火墙</li>
 </ul>
-<h2 id="二维码生成器-Quick-QR"><a href="#二维码生成器-Quick-QR" class="headerlink" title="二维码生成器 (Quick QR)"></a>二维码生成器 (Quick QR)</h2><p>Chrome上好评率最高的二维码生成器：可以方便地把当前页面转化成二维码，也可以把网页上任何文本或链接，甚至是您输入的任意内容都转化成二维码<br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190428143143.png" alt="20190428143143.png">  </p>
-<h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ul>
-<li>快速把任意当前页面生成二维码</li>
-<li>把页面上的任何链接生成二维码</li>
-<li>您可以输入任何内容生成二维码</li>
-<li>无需联网、无需授权（安全可靠，童叟无欺） </li>
-</ul>
-<h2 id="Proxy-SwitchyOmega（科学上网代理）"><a href="#Proxy-SwitchyOmega（科学上网代理）" class="headerlink" title="Proxy SwitchyOmega（科学上网代理）"></a>Proxy SwitchyOmega（科学上网代理）</h2><p>作为一名辛劳的程序员，怎么可以不回科学上网？<br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190428143412.png" alt="20190428143412.png"></p>
-<h2 id="网盘万能钥匙（成功率极高）"><a href="#网盘万能钥匙（成功率极高）" class="headerlink" title="网盘万能钥匙（成功率极高）"></a>网盘万能钥匙（成功率极高）</h2><p>看到自己想要的资源，但是不知道密码？每次都要复制粘贴，麻烦？这个插件绝对可以解决你的烦恼。</p>
-<blockquote>
-<p>网上商店似乎搜不到了  略尴尬  但是真的好用</p>
-</blockquote>
-<h2 id="Vue-Devtools"><a href="#Vue-Devtools" class="headerlink" title="Vue Devtools"></a>Vue Devtools</h2><p>Vue开发者必备<br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190428144112.png" alt="20190428144112.png"></p>
-
+<h1 id="Ubuntu防火墙使用命令"><a href="#Ubuntu防火墙使用命令" class="headerlink" title="Ubuntu防火墙使用命令"></a>Ubuntu防火墙使用命令</h1><h2 id="查看开放端口"><a href="#查看开放端口" class="headerlink" title="查看开放端口"></a>查看开放端口</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw status</span><br></pre></td></tr></table></figure>
+<p><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20191017173821.png" alt="20191017173821.png"></p>
+<h2 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ufw allow 443</span><br></pre></td></tr></table></figure>
+<p><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20191017173939.png" alt="20191017173939.png"></p>
+<h2 id="重启防火墙"><a href="#重启防火墙" class="headerlink" title="重启防火墙"></a>重启防火墙</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw reload</span><br></pre></td></tr></table></figure>
     </div>
     
         <div class="reward" ontouchstart>
@@ -238,15 +227,10 @@ Restlet Clien..." />
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/post/ec07fb1c.html" class="pre-post btn btn-default" title='搭建自己API服务器（一）：使用egg快速搭建'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">搭建自己API服务器（一）：使用egg快速搭建</span>
-        </a>
     
-    
-        <a href="/post/5cb31f79.html" class="next-post btn btn-default" title='追书神器API整理'>
+        <a href="/post/fe256c57.html" class="next-post btn btn-default" title='Flutter学习（七）：分环境打包'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">追书神器API整理</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">Flutter学习（七）：分环境打包</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -291,7 +275,7 @@ Restlet Clien..." />
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Restlet-Client（API测试工具）"><span class="toc-text">Restlet Client（API测试工具）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#优点"><span class="toc-text">优点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二维码生成器-Quick-QR"><span class="toc-text">二维码生成器 (Quick QR)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#功能"><span class="toc-text">功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Proxy-SwitchyOmega（科学上网代理）"><span class="toc-text">Proxy SwitchyOmega（科学上网代理）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网盘万能钥匙（成功率极高）"><span class="toc-text">网盘万能钥匙（成功率极高）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-Devtools"><span class="toc-text">Vue Devtools</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#起因"><span class="toc-text">起因</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#过程"><span class="toc-text">过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu防火墙使用命令"><span class="toc-text">Ubuntu防火墙使用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看开放端口"><span class="toc-text">查看开放端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开放端口"><span class="toc-text">开放端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重启防火墙"><span class="toc-text">重启防火墙</span></a></li></ol></li></ol>
         
     </div>
 </aside>

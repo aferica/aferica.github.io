@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -16,17 +16,17 @@
     <link rel="dns-prefetch" href="http://http://www.aferica.site">
     <!--SEO-->
 
-    <meta name="keywords" content="Flutter,移动开发,视频播放器,flutter_ijkplayer">
+    <meta name="keywords" content="Flutter,移动开发,视频播放器,flutter_ijkplayer" />
 
 
-    <meta name="description" content="在使用Flutter视频播放组件时，最开始我使用了官方组件video_player，但是在使用时遇到了报错，查看Github和Google并没有解决，于是我在Flutter组件仓库中查找，最后选...">
+    <meta name="description" content="在使用Flutter视频播放组件时，最开始我使用了官方组件video_player，但是在使用时遇到了报错，查看Github和Google并没有解决，于是我在Flutter组件仓库中查找，最后选..." />
 
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
 
     <!--Title-->
 
@@ -43,14 +43,10 @@
 
 
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
 
-
-
-
-    
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
 
 
 
@@ -58,9 +54,15 @@
 
     
 
-</head>
 
-</html>
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -71,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <header class="main-header"  style="background-image:url(https://api.aferica.site/common/tool/bing/image)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="aferica">
+        <a class="header-avatar" href="/" title='aferica'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -156,7 +158,7 @@
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/Flutter/">Flutter</a> <a class="tag-link" href="/tags/flutter-ijkplayer/">flutter_ijkplayer</a> <a class="tag-link" href="/tags/移动开发/">移动开发</a> <a class="tag-link" href="/tags/视频播放器/">视频播放器</a>
+                    <a class="tag-link" href="/tags/Flutter/" rel="tag">Flutter</a> <a class="tag-link" href="/tags/flutter-ijkplayer/" rel="tag">flutter_ijkplayer</a> <a class="tag-link" href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" rel="tag">移动开发</a> <a class="tag-link" href="/tags/%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/" rel="tag">视频播放器</a>
                 
             </span>
         </span>
@@ -173,6 +175,10 @@
 </div>
             
             
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>527</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
     </div>
     
     <div class="post-body post-content">
@@ -183,12 +189,18 @@
 <li>该组件是基于<a href="https://github.com/bilibili/ijkplayer" target="_blank" rel="noopener"><code>bilibili/ijkplayer</code></a>，本人对B站挺有好感的</li>
 <li>使用方便，有中文文档</li>
 </ul>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>GitHub地址：<a href="https://github.com/CaiJingLong/flutter_ijkplayer" target="_blank" rel="noopener">https://github.com/CaiJingLong/flutter_ijkplayer</a><br><br></p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>GitHub地址：<a href="https://github.com/CaiJingLong/flutter_ijkplayer" target="_blank" rel="noopener">https://github.com/CaiJingLong/flutter_ijkplayer</a><br><br/></p>
 <h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># pubspec.yaml</span><br><span class="line">dependencies:</span><br><span class="line">  flutter_ijkplayer: $&#123;lastes_version&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="页面使用"><a href="#页面使用" class="headerlink" title="页面使用"></a>页面使用</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter_ijkplayer/flutter_ijkplayer.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VideoInfoPage</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  State&lt;StatefulWidget&gt; createState() =&gt; VideoInfoState();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VideoInfoState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">VideoInfoPage</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">String</span> selectPlayUrl = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 定义控制器</span></span><br><span class="line">  IjkMediaController controller = IjkMediaController();</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="keyword">void</span> initState() &#123;</span><br><span class="line">    <span class="keyword">super</span>.initState();</span><br><span class="line">    getVideoInfo();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="keyword">void</span> dispose() &#123;</span><br><span class="line">    <span class="comment">// 重要，一定要在销毁页面时销毁播放器，否则会出现后台仍在播放有声音的问题</span></span><br><span class="line">    controller.dispose();</span><br><span class="line">    <span class="keyword">super</span>.dispose();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> implement build</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Scaffold(</span><br><span class="line">      appBar: AppBar(</span><br><span class="line">        title: Text(<span class="string">'影片信息'</span>),</span><br><span class="line">      ),</span><br><span class="line">      body: Container(</span><br><span class="line">        child: Stack(</span><br><span class="line">          children: &lt;Widget&gt;[</span><br><span class="line">            Positioned(</span><br><span class="line">              top: <span class="number">0</span>,</span><br><span class="line">              left: <span class="number">0.0</span>,</span><br><span class="line">              right: <span class="number">0.0</span>,</span><br><span class="line">              height: MediaQuery.of(context).size.width / <span class="number">16</span> * <span class="number">9</span>,</span><br><span class="line">              child: Container(</span><br><span class="line">                <span class="comment">// 自定义播放器高度</span></span><br><span class="line">                height: MediaQuery.of(context).size.width / <span class="number">16</span> * <span class="number">9</span>,</span><br><span class="line">                child: IjkPlayer(mediaController: controller),</span><br><span class="line">              ),</span><br><span class="line">            ),</span><br><span class="line">            <span class="comment">// ... 其它信息</span></span><br><span class="line">          ]</span><br><span class="line">        ),</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getVideoInfo() <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="built_in">String</span> palyUrl = <span class="string">'https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4'</span>;</span><br><span class="line">    setState(() &#123;</span><br><span class="line">      selectPlayUrl = palyUrl;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">await</span> controller.setNetworkDataSource(</span><br><span class="line">      palyUrl,</span><br><span class="line">      autoPlay: <span class="keyword">true</span>  <span class="comment">//自动播放</span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="切换来源"><a href="#切换来源" class="headerlink" title="切换来源"></a>切换来源</h2><p>可以为按钮添加点击事件<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">onClick: () <span class="keyword">async</span> &#123;</span><br><span class="line">  <span class="built_in">String</span> playUrl = <span class="string">'xxx'</span>;</span><br><span class="line">  setState(() &#123;</span><br><span class="line">    selectPlayUrl = playUrl;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">// 这个方法调用后,会释放所有原生资源,但重新设置dataSource依然可用</span></span><br><span class="line">  <span class="keyword">await</span> controller.reset(); </span><br><span class="line">  <span class="comment">// 重新设置播放地址</span></span><br><span class="line">  controller.setNetworkDataSource(</span><br><span class="line">    playUrl,</span><br><span class="line">    autoPlay: <span class="keyword">false</span></span><br><span class="line">  );</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure></p>
+
+<h2 id="切换来源"><a href="#切换来源" class="headerlink" title="切换来源"></a>切换来源</h2><p>可以为按钮添加点击事件</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ...</span></span><br><span class="line">onClick: () <span class="keyword">async</span> &#123;</span><br><span class="line">  <span class="built_in">String</span> playUrl = <span class="string">'xxx'</span>;</span><br><span class="line">  setState(() &#123;</span><br><span class="line">    selectPlayUrl = playUrl;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">// 这个方法调用后,会释放所有原生资源,但重新设置dataSource依然可用</span></span><br><span class="line">  <span class="keyword">await</span> controller.reset(); </span><br><span class="line">  <span class="comment">// 重新设置播放地址</span></span><br><span class="line">  controller.setNetworkDataSource(</span><br><span class="line">    playUrl,</span><br><span class="line">    autoPlay: <span class="keyword">false</span></span><br><span class="line">  );</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+
 <p>更多介绍请详见官方文档</p>
-<h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><video id="video" controls preload="none" poster="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/1565013523930973.mp4?x-oss-process=video/snapshot,t_10000,m_fast"><br>  <source id="mp4" src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/1565013523930973.mp4" type="video/mp4"><br></video>
+<h1 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h1><video id="video" controls="" preload="none" poster="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/1565013523930973.mp4?x-oss-process=video/snapshot,t_10000,m_fast">
+  <source id="mp4" src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/1565013523930973.mp4" type="video/mp4">
+</video>
 
 
     </div>
@@ -223,13 +235,13 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/post/27f70779.html" class="pre-post btn btn-default" title="mongoDB中聚合aggregate使用（二）">
+        <a href="/post/27f70779.html" class="pre-post btn btn-default" title='mongoDB中聚合aggregate使用（二）'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">mongoDB中聚合aggregate使用（二）</span>
         </a>
     
     
-        <a href="/post/18c91674.html" class="next-post btn btn-default" title="使用CloudFlare为自己的网站保驾护航">
+        <a href="/post/18c91674.html" class="next-post btn btn-default" title='使用CloudFlare为自己的网站保驾护航'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">使用CloudFlare为自己的网站保驾护航</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
@@ -241,8 +253,10 @@
         
 	
     <div id="vcomments" class="valine"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 
     <script>
         new Valine({
@@ -310,7 +324,7 @@
                 <span>Copyright &copy; 2019
                 </span> |
                 <span>
-                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                  <a href="https://beian.miit.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
                 </span>
                 <!-- <span>
                     Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
@@ -326,7 +340,9 @@
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 
 </body>
 </html>

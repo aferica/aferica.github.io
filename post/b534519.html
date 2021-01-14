@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -16,17 +16,17 @@
     <link rel="dns-prefetch" href="http://http://www.aferica.site">
     <!--SEO-->
 
-    <meta name="keywords" content="Flutter,移动开发">
+    <meta name="keywords" content="Flutter,移动开发" />
 
 
-    <meta name="description" content="在上一篇博文中，我简单的介绍了一些Flutter的知识和优势以及环境配置问题，在本篇博文中，我主要介绍一下常用到的几种Flutter常用布局控件和使用方法。首先，我们先来一张Flutter基本空...">
+    <meta name="description" content="在上一篇博文中，我简单的介绍了一些Flutter的知识和优势以及环境配置问题，在本篇博文中，我主要介绍一下常用到的几种Flutter常用布局控件和使用方法。首先，我们先来一张Flutter基本空..." />
 
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
 
     <!--Title-->
 
@@ -43,14 +43,10 @@
 
 
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
 
-
-
-
-    
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
 
 
 
@@ -58,9 +54,15 @@
 
     
 
-</head>
 
-</html>
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -71,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <header class="main-header"  style="background-image:url(https://api.aferica.site/common/tool/bing/image)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="aferica">
+        <a class="header-avatar" href="/" title='aferica'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -156,7 +158,7 @@
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/Flutter/">Flutter</a> <a class="tag-link" href="/tags/移动开发/">移动开发</a>
+                    <a class="tag-link" href="/tags/Flutter/" rel="tag">Flutter</a> <a class="tag-link" href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" rel="tag">移动开发</a>
                 
             </span>
         </span>
@@ -173,6 +175,10 @@
 </div>
             
             
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>593</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
     </div>
     
     <div class="post-body post-content">
@@ -200,13 +206,15 @@
 <li>transform：设置container的变换矩阵，类型为Matrix4。</li>
 <li>child：container中的内容widget。</li>
 </ul>
-<h2 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">new Container(</span><br><span class="line">  constraints: new BoxConstraints.expand(</span><br><span class="line">    height:Theme.of(context).textTheme.display1.fontSize * 1.1 + 200.0,</span><br><span class="line">  ),</span><br><span class="line">  decoration: new BoxDecoration(</span><br><span class="line">    border: new Border.all(width: 2.0, color: Colors.red),</span><br><span class="line">    color: Colors.grey,</span><br><span class="line">    borderRadius: new BorderRadius.all(new Radius.circular(20.0)),</span><br><span class="line">    image: new DecorationImage(</span><br><span class="line">      image: new NetworkImage(&apos;http://h.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=0d023672312ac65c67506e77cec29e27/9f2f070828381f30dea167bbad014c086e06f06c.jpg&apos;),</span><br><span class="line">      centerSlice: new Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),</span><br><span class="line">    ),</span><br><span class="line">  ),</span><br><span class="line">  padding: const EdgeInsets.all(8.0),</span><br><span class="line">  alignment: Alignment.center,</span><br><span class="line">  child: new Text(&apos;Hello World&apos;,</span><br><span class="line">    style: Theme.of(context).textTheme.display1.copyWith(color: Colors.black)),</span><br><span class="line">  transform: new Matrix4.rotationZ(0.3),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="简单示例"><a href="#简单示例" class="headerlink" title="简单示例"></a>简单示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">new Container(</span><br><span class="line">  constraints: new BoxConstraints.expand(</span><br><span class="line">    height:Theme.of(context).textTheme.display1.fontSize * 1.1 + 200.0,</span><br><span class="line">  ),</span><br><span class="line">  decoration: new BoxDecoration(</span><br><span class="line">    border: new Border.all(width: 2.0, color: Colors.red),</span><br><span class="line">    color: Colors.grey,</span><br><span class="line">    borderRadius: new BorderRadius.all(new Radius.circular(20.0)),</span><br><span class="line">    image: new DecorationImage(</span><br><span class="line">      image: new NetworkImage(&#39;http:&#x2F;&#x2F;h.hiphotos.baidu.com&#x2F;zhidao&#x2F;wh%3D450%2C600&#x2F;sign&#x3D;0d023672312ac65c67506e77cec29e27&#x2F;9f2f070828381f30dea167bbad014c086e06f06c.jpg&#39;),</span><br><span class="line">      centerSlice: new Rect.fromLTRB(270.0, 180.0, 1360.0, 730.0),</span><br><span class="line">    ),</span><br><span class="line">  ),</span><br><span class="line">  padding: const EdgeInsets.all(8.0),</span><br><span class="line">  alignment: Alignment.center,</span><br><span class="line">  child: new Text(&#39;Hello World&#39;,</span><br><span class="line">    style: Theme.of(context).textTheme.display1.copyWith(color: Colors.black)),</span><br><span class="line">  transform: new Matrix4.rotationZ(0.3),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
 <h1 id="Row和Column"><a href="#Row和Column" class="headerlink" title="Row和Column"></a>Row和Column</h1><p><code>Row</code>、<code>Column</code>两个基本相同，只有一个是横向，一个是纵向布局的区别，所以我们以<code>Row</code>为例来介绍说明。</p>
 <h2 id="使用场景-1"><a href="#使用场景-1" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
 <li>需要横向（纵向）排列，如标签展示</li>
 <li>网格布局（GridView也可以实现）  </li>
 </ul>
-<h2 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Row(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,</span><br><span class="line">  MainAxisSize mainAxisSize = MainAxisSize.max,</span><br><span class="line">  CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,</span><br><span class="line">  TextDirection textDirection,</span><br><span class="line">  VerticalDirection verticalDirection = VerticalDirection.down,</span><br><span class="line">  TextBaseline textBaseline,</span><br><span class="line">  List&lt;Widget&gt; children = const &lt;Widget&gt;[],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Row(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  MainAxisAlignment mainAxisAlignment &#x3D; MainAxisAlignment.start,</span><br><span class="line">  MainAxisSize mainAxisSize &#x3D; MainAxisSize.max,</span><br><span class="line">  CrossAxisAlignment crossAxisAlignment &#x3D; CrossAxisAlignment.center,</span><br><span class="line">  TextDirection textDirection,</span><br><span class="line">  VerticalDirection verticalDirection &#x3D; VerticalDirection.down,</span><br><span class="line">  TextBaseline textBaseline,</span><br><span class="line">  List&lt;Widget&gt; children &#x3D; const &lt;Widget&gt;[],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="属性解析-1"><a href="#属性解析-1" class="headerlink" title="属性解析"></a>属性解析</h2><ul>
 <li>key：Flutter控件（Widget）唯一标识符，用于查找更新。</li>
 <li>mainAxisAlignment：子元素对齐方式，MainAxisAlignment对象，类似于css中的<code>justify-content</code>和<code>align-content</code>，<blockquote>
@@ -217,10 +225,13 @@
 <li>crossAxisAlignment：子元素在交叉轴方向的对齐方式</li>
 <li>verticalDirection：定义了子元素摆放顺序，默认是down，即从左到右（从上到下），可选还有up，即从右到左（从下到上）</li>
 </ul>
-<h2 id="简单示例-1"><a href="#简单示例-1" class="headerlink" title="简单示例"></a>简单示例</h2><p>上面三图中的追书人数和读者留存率行实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Row(</span><br><span class="line">  mainAxisAlignment: MainAxisAlignment.spaceEvenly,</span><br><span class="line">  mainAxisSize: MainAxisSize.max, // 默认即为max，可不写</span><br><span class="line">  children: &lt;Widget&gt;[</span><br><span class="line">    Text(&apos;追书人数：&apos;, style: TextStyle(fontSize: 12.0,height: 1.5),),</span><br><span class="line">    Text(latelyFollower, style: TextStyle(fontSize: 13.0, color: Colors.pink,height: 1.5),),</span><br><span class="line">    Text(&apos;读者留存率：&apos;, style: TextStyle(fontSize: 12.0,height: 1.5)),</span><br><span class="line">    Text(retentionRatio, style: TextStyle(fontSize: 13.0, color: Colors.pink,height: 1.5),)</span><br><span class="line">  ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h2 id="简单示例-1"><a href="#简单示例-1" class="headerlink" title="简单示例"></a>简单示例</h2><p>上面三图中的追书人数和读者留存率行实现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Row(</span><br><span class="line">  mainAxisAlignment: MainAxisAlignment.spaceEvenly,</span><br><span class="line">  mainAxisSize: MainAxisSize.max, &#x2F;&#x2F; 默认即为max，可不写</span><br><span class="line">  children: &lt;Widget&gt;[</span><br><span class="line">    Text(&#39;追书人数：&#39;, style: TextStyle(fontSize: 12.0,height: 1.5),),</span><br><span class="line">    Text(latelyFollower, style: TextStyle(fontSize: 13.0, color: Colors.pink,height: 1.5),),</span><br><span class="line">    Text(&#39;读者留存率：&#39;, style: TextStyle(fontSize: 12.0,height: 1.5)),</span><br><span class="line">    Text(retentionRatio, style: TextStyle(fontSize: 13.0, color: Colors.pink,height: 1.5),)</span><br><span class="line">  ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
 <h1 id="Scaffold"><a href="#Scaffold" class="headerlink" title="Scaffold"></a>Scaffold</h1><p><code>Scaffold</code>可以说的上是Flutter中基本的页面布局</p>
 <h2 id="使用场景-2"><a href="#使用场景-2" class="headerlink" title="使用场景"></a>使用场景</h2><ul>
-<li>几乎所有页面都可以使用<h2 id="构造函数-2"><a href="#构造函数-2" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Scaffold(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  this.appBar,</span><br><span class="line">  this.body,</span><br><span class="line">  this.floatingActionButton,</span><br><span class="line">  this.floatingActionButtonLocation,</span><br><span class="line">  this.floatingActionButtonAnimator,</span><br><span class="line">  this.persistentFooterButtons,</span><br><span class="line">  this.drawer,</span><br><span class="line">  this.endDrawer,</span><br><span class="line">  this.bottomNavigationBar,</span><br><span class="line">  this.bottomSheet,</span><br><span class="line">  this.backgroundColor,</span><br><span class="line">  this.resizeToAvoidBottomPadding,</span><br><span class="line">  this.resizeToAvoidBottomInset,</span><br><span class="line">  this.primary = true,</span><br><span class="line">  this.drawerDragStartBehavior = DragStartBehavior.start,</span><br><span class="line">  this.extendBody = false,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<li>几乎所有页面都可以使用<h2 id="构造函数-2"><a href="#构造函数-2" class="headerlink" title="构造函数"></a>构造函数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Scaffold(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  this.appBar,</span><br><span class="line">  this.body,</span><br><span class="line">  this.floatingActionButton,</span><br><span class="line">  this.floatingActionButtonLocation,</span><br><span class="line">  this.floatingActionButtonAnimator,</span><br><span class="line">  this.persistentFooterButtons,</span><br><span class="line">  this.drawer,</span><br><span class="line">  this.endDrawer,</span><br><span class="line">  this.bottomNavigationBar,</span><br><span class="line">  this.bottomSheet,</span><br><span class="line">  this.backgroundColor,</span><br><span class="line">  this.resizeToAvoidBottomPadding,</span><br><span class="line">  this.resizeToAvoidBottomInset,</span><br><span class="line">  this.primary &#x3D; true,</span><br><span class="line">  this.drawerDragStartBehavior &#x3D; DragStartBehavior.start,</span><br><span class="line">  this.extendBody &#x3D; false,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <h2 id="属性解析-2"><a href="#属性解析-2" class="headerlink" title="属性解析"></a>属性解析</h2><ul>
@@ -270,13 +281,13 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/post/3b0ed757.html" class="pre-post btn btn-default" title="Flutter学习（三）：网络请求Dio模块使用">
+        <a href="/post/3b0ed757.html" class="pre-post btn btn-default" title='Flutter学习（三）：网络请求Dio模块使用'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">Flutter学习（三）：网络请求Dio模块使用</span>
         </a>
     
     
-        <a href="/post/890a9b8e.html" class="next-post btn btn-default" title="Flutter学习（一）：环境安装遇到问题和基本介绍">
+        <a href="/post/890a9b8e.html" class="next-post btn btn-default" title='Flutter学习（一）：环境安装遇到问题和基本介绍'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">Flutter学习（一）：环境安装遇到问题和基本介绍</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
@@ -288,8 +299,10 @@
         
 	
     <div id="vcomments" class="valine"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 
     <script>
         new Valine({
@@ -357,7 +370,7 @@
                 <span>Copyright &copy; 2019
                 </span> |
                 <span>
-                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                  <a href="https://beian.miit.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
                 </span>
                 <!-- <span>
                     Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
@@ -373,7 +386,9 @@
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 
 </body>
 </html>

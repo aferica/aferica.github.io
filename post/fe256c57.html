@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -16,17 +16,17 @@
     <link rel="dns-prefetch" href="http://http://www.aferica.site">
     <!--SEO-->
 
-    <meta name="keywords" content="Flutter,Android,移动开发,Apk打包">
+    <meta name="keywords" content="Flutter,移动开发,Android,Apk打包" />
 
 
-    <meta name="description" content="Flutter(Android也一样)打包Apk时，如果不区分正式(release)和开发(debug)版本，就会出现开发时把之前安装的正式版本覆盖掉，无法共存使用。这对开发人员来说造成了一定的...">
+    <meta name="description" content="Flutter(Android也一样)打包Apk时，如果不区分正式(release)和开发(debug)版本，就会出现开发时把之前安装的正式版本覆盖掉，无法共存使用。这对开发人员来说造成了一定的..." />
 
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
 
     <!--Title-->
 
@@ -43,14 +43,10 @@
 
 
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
 
-
-
-
-    
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
 
 
 
@@ -58,9 +54,15 @@
 
     
 
-</head>
 
-</html>
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -71,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <header class="main-header"  style="background-image:url(https://api.aferica.site/common/tool/bing/image)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="aferica">
+        <a class="header-avatar" href="/" title='aferica'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -156,7 +158,7 @@
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/Android/">Android</a> <a class="tag-link" href="/tags/Apk打包/">Apk打包</a> <a class="tag-link" href="/tags/Flutter/">Flutter</a> <a class="tag-link" href="/tags/移动开发/">移动开发</a>
+                    <a class="tag-link" href="/tags/Android/" rel="tag">Android</a> <a class="tag-link" href="/tags/Apk%E6%89%93%E5%8C%85/" rel="tag">Apk打包</a> <a class="tag-link" href="/tags/Flutter/" rel="tag">Flutter</a> <a class="tag-link" href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" rel="tag">移动开发</a>
                 
             </span>
         </span>
@@ -173,13 +175,20 @@
 </div>
             
             
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>502</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
     </div>
     
     <div class="post-body post-content">
         <p>Flutter(Android也一样)打包Apk时，如果不区分正式(release)和开发(debug)版本，就会出现开发时把之前安装的正式版本覆盖掉，无法共存使用。这对开发人员来说造成了一定的问题，我们可以通过设置不同的包名、图标来解决这个问题</p>
-<h1 id="设置包名"><a href="#设置包名" class="headerlink" title="设置包名"></a>设置包名</h1><p>打开<code>android/app/build.gradle</code>文件，找到<code>buildTypes</code>中添加<code>debug</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line"></span><br><span class="line">  defaultConfig &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  signingConfigs &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  buildTypes &#123;</span><br><span class="line">    <span class="comment">// 添加debug</span></span><br><span class="line">    debug &#123;</span><br><span class="line">        minifyEnabled <span class="keyword">false</span></span><br><span class="line">        signingConfig signingConfigs.debug</span><br><span class="line">        applicationIdSuffix <span class="string">'.debug'</span></span><br><span class="line">    &#125;</span><br><span class="line">    release &#123;</span><br><span class="line">        <span class="comment">// <span class="doctag">TODO:</span> Add your own signing config for the release build.</span></span><br><span class="line">        <span class="comment">// Signing with the debug keys for now, so `flutter run --release` works.</span></span><br><span class="line">        signingConfig signingConfigs.release</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><br></p>
-<h1 id="修改图标"><a href="#修改图标" class="headerlink" title="修改图标"></a>修改图标</h1><p>在<code>android/app/src</code>目录下找到或者创建<code>debug</code>文件夹，和<code>main</code>相同的目录设置图标资源<br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/屏幕快照 2019-08-31 下午9.52.54.png" alt="屏幕快照"></p>
+<h1 id="设置包名"><a href="#设置包名" class="headerlink" title="设置包名"></a>设置包名</h1><p>打开<code>android/app/build.gradle</code>文件，找到<code>buildTypes</code>中添加<code>debug</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line"></span><br><span class="line">  defaultConfig &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  signingConfigs &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  buildTypes &#123;</span><br><span class="line">    <span class="comment">// 添加debug</span></span><br><span class="line">    debug &#123;</span><br><span class="line">        minifyEnabled <span class="keyword">false</span></span><br><span class="line">        signingConfig signingConfigs.debug</span><br><span class="line">        applicationIdSuffix <span class="string">'.debug'</span></span><br><span class="line">    &#125;</span><br><span class="line">    release &#123;</span><br><span class="line">        <span class="comment">// <span class="doctag">TODO:</span> Add your own signing config for the release build.</span></span><br><span class="line">        <span class="comment">// Signing with the debug keys for now, so `flutter run --release` works.</span></span><br><span class="line">        signingConfig signingConfigs.release</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<br/>
+# 修改图标
+在`android/app/src`目录下找到或者创建`debug`文件夹，和`main`相同的目录设置图标资源
+![屏幕快照](https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/屏幕快照 2019-08-31 下午9.52.54.png)
 
     </div>
     
@@ -213,8 +222,13 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
+        <a href="/post/72cb0b46.html" class="pre-post btn btn-default" title='记一次Nginx无法使用https的问题（开启Ubuntu防火墙）'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">记一次Nginx无法使用https的问题（开启Ubuntu防火墙）</span>
+        </a>
     
-        <a href="/post/27f70779.html" class="next-post btn btn-default" title="mongoDB中聚合aggregate使用（二）">
+    
+        <a href="/post/27f70779.html" class="next-post btn btn-default" title='mongoDB中聚合aggregate使用（二）'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">mongoDB中聚合aggregate使用（二）</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
@@ -226,8 +240,10 @@
         
 	
     <div id="vcomments" class="valine"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 
     <script>
         new Valine({
@@ -259,7 +275,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置包名"><span class="toc-text">设置包名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改图标"><span class="toc-text">修改图标</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#设置包名"><span class="toc-text">设置包名</span></a></li></ol>
         
     </div>
 </aside>
@@ -295,7 +311,7 @@
                 <span>Copyright &copy; 2019
                 </span> |
                 <span>
-                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                  <a href="https://beian.miit.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
                 </span>
                 <!-- <span>
                     Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
@@ -311,7 +327,9 @@
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 
 </body>
 </html>

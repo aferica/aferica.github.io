@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head>
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -16,17 +16,17 @@
     <link rel="dns-prefetch" href="http://http://www.aferica.site">
     <!--SEO-->
 
-    <meta name="keywords" content="工具,VS Code,PicGo">
+    <meta name="keywords" content="工具,VS Code,PicGo" />
 
 
-    <meta name="description" content="最为一名程序员，写文章、博客或是随笔似乎已成为一项必备技能，毕竟需要记忆和学习的东西太多了，而且经常会遇到一些稀奇古怪的问题，当你千辛万苦的解决后，本着开源精神，记录下来，发个博客，无私奉献（成...">
+    <meta name="description" content="最为一名程序员，写文章、博客或是随笔似乎已成为一项必备技能，毕竟需要记忆和学习的东西太多了，而且经常会遇到一些稀奇古怪的问题，当你千辛万苦的解决后，本着开源精神，记录下来，发个博客，无私奉献（成..." />
 
 
 
-<meta name="robots" content="all">
-<meta name="google" content="all">
-<meta name="googlebot" content="all">
-<meta name="verify" content="all">
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
 
     <!--Title-->
 
@@ -43,14 +43,10 @@
 
 
 
-<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
-<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
-<link rel="stylesheet" href="/css/style.css?rev=@@hash">
 
-
-
-
-    
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
 
 
 
@@ -58,9 +54,15 @@
 
     
 
-</head>
 
-</html>
+
+
+
+    
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+
 <!--[if lte IE 8]>
 <style>
     html{ font-size: 1em }
@@ -71,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(https://api.aferica.site/common/tool/bing/image)">
+    <header class="main-header"  style="background-image:url(https://api.aferica.site/common/tool/bing/image)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="aferica">
+        <a class="header-avatar" href="/" title='aferica'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -147,7 +149,7 @@
     
         <span class="categories-meta fa-wrap">
             <i class="fa fa-folder-open-o"></i>
-            <a class="category-link" href="/categories/工具/">工具</a>
+            <a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a>
         </span>
     
 
@@ -156,7 +158,7 @@
             <i class="fa fa-tags"></i>
             <span class="tags-meta">
                 
-                    <a class="tag-link" href="/tags/PicGo/">PicGo</a> <a class="tag-link" href="/tags/VS-Code/">VS Code</a> <a class="tag-link" href="/tags/工具/">工具</a>
+                    <a class="tag-link" href="/tags/PicGo/" rel="tag">PicGo</a> <a class="tag-link" href="/tags/VS-Code/" rel="tag">VS Code</a> <a class="tag-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a>
                 
             </span>
         </span>
@@ -173,6 +175,10 @@
 </div>
             
             
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>588</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
     </div>
     
     <div class="post-body post-content">
@@ -185,7 +191,9 @@
 <li>操作简单，使用快捷键一键上传</li>
 </ul>
 <h1 id="VSCode-picgo-阿里云OSS"><a href="#VSCode-picgo-阿里云OSS" class="headerlink" title="VSCode + picgo + 阿里云OSS"></a>VSCode + picgo + 阿里云OSS</h1><h2 id="VSCode安装picgo插件"><a href="#VSCode安装picgo插件" class="headerlink" title="VSCode安装picgo插件"></a>VSCode安装picgo插件</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>VSCode插件市场搜索<code>picgo</code>，点击安装，如下图<br><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190605155052.png" alt="20190605155052.png"></p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>更多配置信息可查看<a href="https://picgo.github.io/PicGo-Core-Doc/zh/" target="_blank" rel="noopener">官方文档地址</a><br>打开VSCode配置文件<code>settings.json</code>，添加以下配置<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 其他配置</span><br><span class="line">"picgo": &#123;</span><br><span class="line">  "picBed": &#123;</span><br><span class="line">    "uploader": "aliyun",  // 当前使用图床 </span><br><span class="line">    "current": "aliyun",  // 当前使用图床 作用与picBed.uploader一致，主要是为了兼容PicGo的electron版本而留下的配置。未来有可能抛弃。</span><br><span class="line">    "aliyun": &#123; // 阿里云OSS配置</span><br><span class="line">      "accessKeyId": "**************",</span><br><span class="line">      "accessKeySecret": "**************",</span><br><span class="line">      "bucket": "**************", // 存储空间名</span><br><span class="line">      "area": "**************", // 存储区域代号</span><br><span class="line">      "path": "markdown/" // 自定义存储路径文件所在位置</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>更多配置信息可查看<a href="https://picgo.github.io/PicGo-Core-Doc/zh/" target="_blank" rel="noopener">官方文档地址</a><br>打开VSCode配置文件<code>settings.json</code>，添加以下配置</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 其他配置</span></span><br><span class="line">"picgo": &#123;</span><br><span class="line">  "picBed": &#123;</span><br><span class="line">    "uploader": "aliyun",  // 当前使用图床 </span><br><span class="line">    "current": "aliyun",  // 当前使用图床 作用与picBed.uploader一致，主要是为了兼容PicGo的electron版本而留下的配置。未来有可能抛弃。</span><br><span class="line">    "aliyun": &#123; // 阿里云OSS配置</span><br><span class="line">      "accessKeyId": "**************",</span><br><span class="line">      "accessKeySecret": "**************",</span><br><span class="line">      "bucket": "**************", // 存储空间名</span><br><span class="line">      "area": "**************", // 存储区域代号</span><br><span class="line">      "path": "markdown/" // 自定义存储路径文件所在位置</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
 <h3 id="使用快捷键"><a href="#使用快捷键" class="headerlink" title="使用快捷键"></a>使用快捷键</h3><table>
 <thead>
 <tr>
@@ -195,8 +203,7 @@
 <th>从输入框上传（很少用到）</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Windows/Unix</td>
 <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>U</kbd></td>
 <td><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>E</kbd></td>
@@ -208,8 +215,7 @@
 <td><kbd>Cmd</kbd> + <kbd>Opt</kbd> + <kbd>E</kbd></td>
 <td><kbd>Cmd</kbd> + <kbd>Opt</kbd> + <kbd>O</kbd></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="阿里云OSS"><a href="#阿里云OSS" class="headerlink" title="阿里云OSS"></a>阿里云OSS</h2><h3 id="登录阿里云控制台"><a href="#登录阿里云控制台" class="headerlink" title="登录阿里云控制台"></a>登录阿里云控制台</h3><p><a href="https://account.aliyun.com/login/login.htm" target="_blank" rel="noopener">地址</a><br>使用淘宝、支付宝账号即可</p>
 <h3 id="开通对象存储OSS"><a href="#开通对象存储OSS" class="headerlink" title="开通对象存储OSS"></a>开通对象存储OSS</h3><p><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190605162400.png" alt="20190605162400.png"></p>
 <h3 id="新建Bucket"><a href="#新建Bucket" class="headerlink" title="新建Bucket"></a>新建Bucket</h3><p><img src="https://aferica.oss-cn-shenzhen.aliyuncs.com/markdown/20190605162503.png" alt="20190605162503.png"></p>
@@ -247,13 +253,13 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/post/9a314a5.html" class="pre-post btn btn-default" title="Ubuntu使用遇到问题（一）">
+        <a href="/post/9a314a5.html" class="pre-post btn btn-default" title='Ubuntu使用遇到问题（一）'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">Ubuntu使用遇到问题（一）</span>
         </a>
     
     
-        <a href="/post/3b0ed757.html" class="next-post btn btn-default" title="Flutter学习（三）：网络请求Dio模块使用">
+        <a href="/post/3b0ed757.html" class="next-post btn btn-default" title='Flutter学习（三）：网络请求Dio模块使用'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">Flutter学习（三）：网络请求Dio模块使用</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
@@ -265,8 +271,10 @@
         
 	
     <div id="vcomments" class="valine"></div>
-    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src="/assets/valine.min.js"></script>
+
 
     <script>
         new Valine({
@@ -334,7 +342,7 @@
                 <span>Copyright &copy; 2019
                 </span> |
                 <span>
-                  <a href="http://www.miitbeian.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
+                  <a href="https://beian.miit.gov.cn/" class="copyright-links" target="_blank" rel="nofollow">粤ICP备18008014号</a>
                 </span>
                 <!-- <span>
                     Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
@@ -350,7 +358,9 @@
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
 
 </body>
 </html>
